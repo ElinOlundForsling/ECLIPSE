@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@color/white"
+        android:background="@drawable/menu_rounded"
         app:cnb_menuResource="@menu/bottom_menu"
         app:layout_constraintBottom_toBottomOf="parent" />
 
