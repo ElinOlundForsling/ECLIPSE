@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/launch_temp">
+    tools:context=".MainActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/frame_layout"
-        android:layout_above="@id/menu_bottom" />
+        android:layout_above="@id/menu_bottom"
+        android:background="@drawable/launch_temp"/>
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/menu_bottom"

@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#e09600</color>
     <color name="colorAccent">#FFD965</color>
     <color name="white">#FFFFFF</color>
+    <color name="textDark">#272727</color>
+    <color name="textMid">#666666</color>
     <color name="home">#ffeaa7</color>
     <color name="homeDark">#fdcb6e</color>
     <color name="search">#74b9ff</color>

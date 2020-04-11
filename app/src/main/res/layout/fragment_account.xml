@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.AccountFragment">
+    tools:context=".fragment.AccountFragment"
+    android:background="@drawable/bg_dtsp_11">
 
     <ImageView
         android:id="@+id/imageView_profile_picture"
@@ -38,6 +39,8 @@
         app:layout_constraintTop_toBottomOf="@id/imageView_profile_picture"
         app:layout_constraintVertical_bias="0.025"
         android:autofillHints="@string/name"
+        android:textColor="@color/textDark"
+        android:textColorHint="@color/textMid"
         android:inputType="textPersonName" />
 
     <EditText
@@ -57,6 +60,8 @@
         app:layout_constraintTop_toBottomOf="@id/editText_name"
         app:layout_constraintVertical_bias="0.042"
         android:autofillHints="@string/bio"
+        android:textColor="@color/textDark"
+        android:textColorHint="@color/textMid"
         android:inputType="textShortMessage"/>
 
     <Button
