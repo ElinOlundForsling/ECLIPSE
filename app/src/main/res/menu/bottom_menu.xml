@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/ic_menu_alt_home"
+        android:title="@string/home"
+        app:cnb_backgroundColor="@color/home"
+        app:cnb_iconColor="@color/homeDark"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@color/homeDark" />
+
+    <item
+        android:id="@+id/friends"
+        android:enabled="true"
+        android:icon="@drawable/ic_menu_alt_friends"
+        android:title="@string/friends"
+        app:cnb_backgroundColor="@color/friends"
+        app:cnb_iconColor="@color/friendsDark"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@color/friendsDark" />
+
+    <item
+        android:id="@+id/search"
+        android:enabled="true"
+        android:icon="@drawable/ic_menu_alt_search"
+        android:title="@string/search"
+        app:cnb_backgroundColor="@color/search"
+        app:cnb_iconColor="@color/searchDark"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@color/searchDark" />
+
+    <item
+        android:id="@+id/profile"
+        android:enabled="true"
+        android:icon="@drawable/ic_menu_alt_profile"
+        android:title="@string/profile"
+        app:cnb_backgroundColor="@color/profile"
+        app:cnb_iconColor="@color/profileDark"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@color/profileDark" />
+
+</menu>

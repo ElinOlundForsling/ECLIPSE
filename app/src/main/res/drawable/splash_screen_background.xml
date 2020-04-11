@@ -4,6 +4,6 @@
 
     <item>
         <bitmap android:src="@drawable/launch_temp"
-            android:gravity="top"/>
+            android:gravity="fill" />
     </item>
 </layer-list>
