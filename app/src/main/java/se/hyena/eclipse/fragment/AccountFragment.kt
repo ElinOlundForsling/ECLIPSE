@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.firebase.ui.auth.AuthUI
 import kotlinx.android.synthetic.main.fragment_account.*
 import kotlinx.android.synthetic.main.fragment_account.view.*
@@ -55,6 +56,9 @@ class AccountFragment : Fragment() {
                     }
                 else
                     FirestoreUtil.updateCurrentUser(editText_name.text.toString(), editText_bio.text.toString(), null)
+
+                val toast = Toast.makeText(this.context, "Saving...", Toast.LENGTH_SHORT)
+                toast.show()
             }
 
             btn_sign_out.setOnClickListener { AuthUI.getInstance()
