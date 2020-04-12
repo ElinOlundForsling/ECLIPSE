@@ -10,7 +10,7 @@ object StorageUtil {
     private val storageInstance: FirebaseStorage by lazy { FirebaseStorage.getInstance() }
 
     private val currentUserRef: StorageReference
-        get() = storageInstance.reference.child(FirebaseAuth.getInstance().uid ?: throw NullPointerException("UID is null."))
+        get() = storageInstance.reference.child(FirebaseAuth.getInstance().currentUser?.uid ?: throw NullPointerException("UID is null."))
 
     fun uploadProfilePhoto(imageBytes: ByteArray, onSuccess: (imagePath: String) -> Unit) {
         val ref = currentUserRef.child("profilePictures/${UUID.nameUUIDFromBytes(imageBytes)}")
