@@ -116,7 +116,7 @@ class AccountFragment : Fragment() {
                 if (!pictureJustChanged && user.profilePath != null)
                     GlideApp.with(this)
                         .load(StorageUtil.pathToReference(user.profilePath))
-                        .placeholder(R.drawable.ic_account_circle_black_24dp)
+                        .placeholder(R.drawable.ic_menu_profile)
                         .into(imageView_profile_picture)
             }
         }
