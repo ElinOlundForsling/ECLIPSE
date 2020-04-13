@@ -8,6 +8,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import com.xwray.groupie.kotlinandroidextensions.Item
 import se.hyena.eclipse.model.*
+import se.hyena.eclipse.recyclerview.item.ImageMessageItem
 import se.hyena.eclipse.recyclerview.item.PersonItem
 import se.hyena.eclipse.recyclerview.item.TextMessageItem
 import java.lang.NullPointerException
@@ -57,11 +58,9 @@ object FirestoreUtil {
                 }
 
                 val items = mutableListOf<Item>()
-                if (querySnapshot != null) {
-                    querySnapshot.documents.forEach {
-                        if (it.id != FirebaseAuth.getInstance().currentUser?.uid)
-                            items.add(PersonItem(it.toObject(User::class.java)!!, it.id, context))
-                    }
+                querySnapshot!!.documents.forEach {
+                    if (it.id != FirebaseAuth.getInstance().currentUser?.uid)
+                        items.add(PersonItem(it.toObject(User::class.java)!!, it.id, context))
                 }
                 onListen(items)
             }
@@ -106,13 +105,12 @@ object FirestoreUtil {
                 }
 
                 val items = mutableListOf<Item>()
-                if (querySnapshot != null) {
-                    querySnapshot.documents.forEach {
-                        if (it["type"] == MessageType.TEXT)
-                            items.add(TextMessageItem(it.toObject(TextMessage::class.java)!!, context))
-                        else
-                            TODO("Add image message.")
-                    }
+                querySnapshot!!.documents.forEach {
+                    if (it["type"] == MessageType.TEXT)
+                        items.add(TextMessageItem(it.toObject(TextMessage::class.java)!!, context))
+                    else
+                        items.add(ImageMessageItem(it.toObject(ImageMessage::class.java)!!, context))
+                    return@forEach
                 }
                 onListen(items)
             }
