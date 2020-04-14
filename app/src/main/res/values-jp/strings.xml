@@ -1,25 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- MAIN -->
     <string name="app_name">ECLIPSE</string>
+
+    <!-- SIGN IN -->
     <string name="email">メール</string>
     <string name="password">パスワード</string>
     <string name="login">ログイン / 会員登録</string>
-    <string name="sign_out">ログアウト</string>
-    <string name="search">探索</string>
-    <string name="user_profile_image">プロフィール画像</string>
-    <string name="name">名前</string>
-    <string name="bio">伝記</string>
-    <string name="save">セーブ</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">こんにちは、世界</string>
-    <string name="title_activity_home">ホーム</string>
+    <!-- MENU -->
     <string name="home">ホーム</string>
     <string name="friends">友達</string>
     <string name="profile">プリファイル</string>
+    <string name="search">探索</string>
 
+    <!-- HOME -->
+    <string name="popular">Popular</string>
+    <string name="most_popular_movies">Most popular movies</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="highest_rated_movies">Highest rated movies of all time</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="stay_updated">Stay updated with the latest movies</string>
+
+    <!-- MOVIES -->
+    <string name="movie_poster">Movie Poster</string>
+    <string name="movie_header">Movie Header</string>
+
+    <!-- SEARCH -->
+
+    <!-- FRIENDS -->
+
+    <!-- CHAT -->
     <string name="type_message">メッセージ</string>
     <string name="image">イメージ</string>
 
+    <!-- ACCOUNT -->
+    <string name="name">名前</string>
+    <string name="bio">伝記</string>
+    <string name="save">セーブ</string>
+    <string name="sign_out">ログアウト</string>
+    <string name="user_profile_image">プロフィール画像</string>
+
+    <!-- ERRORS -->
+    <string name="error_fetch_movies">Please check your internet connection</string>
+
+    <!-- TEMP -->
+    <string name="hello_blank_fragment">こんにちは、世界</string>
     <string name="lorem_ipsum">The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother\'s keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</string>
+
+
 </resources>

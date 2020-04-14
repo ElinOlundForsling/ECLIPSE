@@ -1,23 +1,51 @@
 <resources>
+
+    <!-- MAIN -->
     <string name="app_name">ECLIPSE</string>
+
+    <!-- SIGN IN -->
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Sign in / Register</string>
-    <string name="sign_out">Sign Out</string>
-    <string name="search">Search</string>
-    <string name="user_profile_image">User Profile Image</string>
-    <string name="name">Name</string>
-    <string name="bio">Bio</string>
-    <string name="save">Save</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_home">HomeActivity</string>
+    <!-- MENU -->
     <string name="home">Home</string>
     <string name="friends">Friends</string>
     <string name="profile">Profile</string>
+    <string name="search">Search</string>
+
+    <!-- HOME -->
+    <string name="popular">Popular</string>
+    <string name="most_popular_movies">Most popular movies</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="highest_rated_movies">Highest rated movies of all time</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="stay_updated">Stay updated with the latest movies</string>
+
+    <!-- MOVIES -->
+    <string name="movie_poster">Movie Poster</string>
+    <string name="movie_header">Movie Header</string>
+
+    <!-- SEARCH -->
+
+    <!-- FRIENDS -->
+
+    <!-- CHAT -->
     <string name="type_message">Type Message</string>
     <string name="image">Image</string>
 
+    <!-- ACCOUNT -->
+    <string name="name">Name</string>
+    <string name="bio">Bio</string>
+    <string name="save">Save</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="user_profile_image">User Profile Image</string>
+
+    <!-- ERRORS -->
+    <string name="error_fetch_movies">Please check your internet connection</string>
+
+    <!-- TEMP -->
     <string name="lorem_ipsum">The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother\'s keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

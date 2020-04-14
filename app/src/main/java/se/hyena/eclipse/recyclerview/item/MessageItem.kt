@@ -27,14 +27,14 @@ abstract class MessageItem (private val message: Message) : Item() {
     private fun setMessageRootGravity(viewHolder: GroupieViewHolder) {
         if (message.senderId == FirebaseAuth.getInstance().currentUser?.uid) {
             viewHolder.message_root.apply {
-                setBackgroundResource(R.drawable.message_from_user)
+                setBackgroundResource(R.drawable.comp_message_from_user)
                 val lParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.END)
                 this.layoutParams = lParams
             }
         }
         else {
             viewHolder.message_root.apply {
-                setBackgroundResource(R.drawable.message_from_friend)
+                setBackgroundResource(R.drawable.comp_message_from_friend)
                 val lParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.START)
                 this.layoutParams = lParams
             }

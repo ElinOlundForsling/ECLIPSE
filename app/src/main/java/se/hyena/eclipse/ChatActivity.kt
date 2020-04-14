@@ -9,7 +9,6 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ListenerRegistration
@@ -53,7 +52,7 @@ class ChatActivity : AppCompatActivity() {
 
             imageView_send.setOnClickListener {
                 val messageToSend =
-                    TextMessage(editText_message.text.toString(), java.util.Calendar.getInstance().time, FirebaseAuth.getInstance().currentUser!!.uid, MessageType.TEXT)
+                    TextMessage(editText_message.text.toString(), Calendar.getInstance().time, FirebaseAuth.getInstance().currentUser!!.uid, MessageType.TEXT)
                 editText_message.setText("")
                 FirestoreUtil.sendMessage(messageToSend, channelId)
             }
@@ -71,6 +70,7 @@ class ChatActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_SELECT_IMAGE && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
             val selectedImageUri = data.data
             val selectedImageBitmap = when {

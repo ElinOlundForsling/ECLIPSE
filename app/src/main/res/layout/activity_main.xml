@@ -12,7 +12,7 @@
 
         android:id="@+id/frame_layout"
         android:layout_above="@id/menu_bottom"
-        android:background="@drawable/launch_temp"
+        android:background="@drawable/bg_splash_temp"
         />
 
         <!--
@@ -27,7 +27,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
-    android:background="@drawable/menu_rounded"
+    android:background="@drawable/comp_menu_rounded"
     app:cnb_menuResource="@menu/bottom_menu"
     app:layout_constraintBottom_toBottomOf="parent" />
 

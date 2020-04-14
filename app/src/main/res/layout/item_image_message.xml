@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:background="@drawable/message_from_user">
+        android:background="@drawable/comp_message_from_user">
         <ImageView
             android:id="@+id/imageView_message_image"
             android:layout_width="250dp"
