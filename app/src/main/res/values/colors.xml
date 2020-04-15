@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#F4B400</color>
-    <color name="colorPrimaryDark">#e09600</color>
+    <color name="colorPrimary">#373737</color>
+    <color name="colorPrimaryDark">#2E2E2E</color>
     <color name="colorAccent">#FFD965</color>
     <color name="white">#FFFFFF</color>
     <color name="textDark">#272727</color>
     <color name="textMid">#666666</color>
     <color name="home">#ffeaa7</color>
-    <color name="homeDark">#fdcb6e</color>
-    <color name="search">#74b9ff</color>
-    <color name="searchDark">#0984e3</color>
-    <color name="friends">#ff7675</color>
+    <color name="homeDark">#E19300</color>
+    <color name="search">#99CCFF</color>
+    <color name="searchDark">#006DC1</color>
+    <color name="friends">#FFB5B4</color>
     <color name="friendsDark">#d63031</color>
-    <color name="profile">#55efc4</color>
-    <color name="profileDark">#00b894</color>
+    <color name="profile">#8FFFE0</color>
+    <color name="profileDark">#009579</color>
 </resources>
