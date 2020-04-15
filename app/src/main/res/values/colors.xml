@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#2E2E2E</color>
     <color name="colorAccent">#FFD965</color>
     <color name="white">#FFFFFF</color>
+    <color name="transparent">#FFFFFFFF</color>
     <color name="textDark">#272727</color>
     <color name="textMid">#666666</color>
     <color name="home">#ffeaa7</color>
@@ -14,4 +15,8 @@
     <color name="friendsDark">#d63031</color>
     <color name="profile">#8FFFE0</color>
     <color name="profileDark">#009579</color>
+    <color name="searchGradientStart">#FF8D14</color>
+    <color name="searchGradientEnd">#FFA60B</color>
+    <color name="searchGradientSelectedStart">#ff5c14</color>
+    <color name="searchGradientSelectedEnd">#f18200</color>
 </resources>

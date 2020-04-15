@@ -47,5 +47,49 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="118dp" />
 
+    <RadioGroup
+        android:id="@+id/toggle"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginStart="80dp"
+        android:background="@drawable/comp_search_toggle_outline"
+        android:checkedButton="@+id/movies_toggle"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.80"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/movies_toggle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/comp_search_toggle"
+            android:button="@null"
+            android:gravity="center"
+            android:text="MOVIES"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/users_toggle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/comp_search_toggle_right"
+            android:button="@null"
+            android:gravity="center"
+            android:text="USERS"
+            android:textColor="@color/white" />
+    </RadioGroup>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

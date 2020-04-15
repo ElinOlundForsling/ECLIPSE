@@ -4,8 +4,8 @@
     <solid android:color="@color/colorPrimary"/>
     <corners android:bottomLeftRadius="15dp" android:topLeftRadius="15dp"/>
     <gradient
-        android:startColor="#FF8D14"
-        android:endColor="#FFA60B"
+        android:startColor="@color/searchGradientStart"
+        android:endColor="@color/searchGradientEnd"
         android:angle="0.2"/>
 
 </shape>
