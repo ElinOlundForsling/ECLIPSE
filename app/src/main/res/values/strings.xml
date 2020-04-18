@@ -28,6 +28,9 @@
 
     <!-- SEARCH -->
     <string name="type_here">Type here…</string>
+    <string name="search_movies">MOVIES</string>
+    <string name="search_users">USERS</string>
+
     <!-- FRIENDS -->
 
     <!-- CHAT -->

@@ -26,7 +26,7 @@ object FirestoreUtil {
         currentUserDocRef.get().addOnSuccessListener { documentSnapshot ->
             if (!documentSnapshot.exists()) {
                 val newUser =
-                    User(FirebaseAuth.getInstance().currentUser?.displayName ?: "", "", null)
+                    User(FirebaseAuth.getInstance().currentUser?.displayName ?: "", "", null, mutableListOf(), mutableListOf())
                 currentUserDocRef.set(newUser).addOnSuccessListener { onComplete() }
             }
             else
@@ -120,5 +120,16 @@ object FirestoreUtil {
         chatChannelsCollectionRef.document(channelId)
             .collection("messages")
             .add(message)
+    }
+
+    fun getFCMRegistrationTokens(onComplete: (tokens: MutableList<String>) -> Unit) {
+        currentUserDocRef.get().addOnSuccessListener {
+            val user = it.toObject(User::class.java)!!
+            onComplete(user.registrationTokens)
+        }
+    }
+
+    fun setFCMRegistrationTokens(registrationTokens: MutableList<String>) {
+        currentUserDocRef.update(mapOf("registrationTokens" to registrationTokens))
     }
 }

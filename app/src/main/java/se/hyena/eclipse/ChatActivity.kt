@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_chat.*
 import se.hyena.eclipse.model.ImageMessage
 import se.hyena.eclipse.model.MessageType
 import se.hyena.eclipse.model.TextMessage
+import se.hyena.eclipse.model.User
 import se.hyena.eclipse.util.FirestoreUtil
 import se.hyena.eclipse.util.StorageUtil
 import java.io.ByteArrayOutputStream
@@ -30,6 +31,8 @@ private const val RC_SELECT_IMAGE = 2
 class ChatActivity : AppCompatActivity() {
 
     private lateinit var currentChannelId: String
+    private lateinit var currentUser: User
+    private lateinit var otherUserId: String
 
     private lateinit var messagesListenerRegistration: ListenerRegistration
     private var shouldInitRecyclerView = true
@@ -42,6 +45,10 @@ class ChatActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = intent.getStringExtra(AppConstants.USER_NAME)
 
+        FirestoreUtil.getCurrentUser {
+            currentUser = it
+        }
+
         val otherUserId = intent.getStringExtra(AppConstants.USER_ID)
 
 
@@ -52,7 +59,7 @@ class ChatActivity : AppCompatActivity() {
 
             imageView_send.setOnClickListener {
                 val messageToSend =
-                    TextMessage(editText_message.text.toString(), Calendar.getInstance().time, FirebaseAuth.getInstance().currentUser!!.uid, MessageType.TEXT)
+                    TextMessage(editText_message.text.toString(), Calendar.getInstance().time, FirebaseAuth.getInstance().currentUser!!.uid, otherUserId, currentUser.name)
                 editText_message.setText("")
                 FirestoreUtil.sendMessage(messageToSend, channelId)
             }
@@ -94,7 +101,7 @@ class ChatActivity : AppCompatActivity() {
             val selectedImageBytes = outputStream.toByteArray()
 
             StorageUtil.uploadMessageImage(selectedImageBytes) { imagePath -> val messageToSend =
-                ImageMessage(imagePath, Calendar.getInstance().time, FirebaseAuth.getInstance().currentUser!!.uid)
+                ImageMessage(imagePath, Calendar.getInstance().time, FirebaseAuth.getInstance().currentUser!!.uid, otherUserId, currentUser.name)
                 FirestoreUtil.sendMessage(messageToSend, currentChannelId)
             }
         }

@@ -73,7 +73,7 @@
             android:background="@drawable/comp_search_toggle"
             android:button="@null"
             android:gravity="center"
-            android:text="MOVIES"
+            android:text="@string/search_movies"
             android:textColor="@color/white" />
 
         <RadioButton
@@ -87,7 +87,7 @@
             android:background="@drawable/comp_search_toggle_right"
             android:button="@null"
             android:gravity="center"
-            android:text="USERS"
+            android:text="@string/search_users"
             android:textColor="@color/white" />
     </RadioGroup>
 

@@ -67,10 +67,18 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     // Firebase
+    // https://firebase.google.com/docs/android/setup#available-libraries
     implementation 'com.google.firebase:firebase-analytics:17.2.2'
     implementation 'com.google.firebase:firebase-auth:19.3.0'
     implementation 'com.google.firebase:firebase-firestore:21.4.2'
     implementation 'com.google.firebase:firebase-storage-ktx:19.1.1'
+    implementation 'com.google.firebase:firebase-messaging:20.1.5'
+    implementation 'com.google.gms:google-services:4.3.3'
+
+    // Google Play Services
+    // https://developers.google.com/android/guides/setup
+    implementation 'com.google.android.gms:play-services-auth:18.0.0'
+
 
     // Firebase UI
     // https://github.com/firebase/FirebaseUI-Android
