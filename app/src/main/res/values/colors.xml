@@ -5,8 +5,9 @@
     <color name="colorAccent">#FFD965</color>
     <color name="white">#FFFFFF</color>
     <color name="transparent">#FFFFFFFF</color>
-    <color name="textDark">#272727</color>
-    <color name="textMid">#666666</color>
+    <color name="textDark">#696B6F</color>
+    <color name="textMid">#888888</color>
+    <color name="textLight">#AEAEAE</color>
     <color name="home">#ffeaa7</color>
     <color name="homeDark">#E19300</color>
     <color name="search">#99CCFF</color>
@@ -19,4 +20,5 @@
     <color name="searchGradientEnd">#FFA60B</color>
     <color name="searchGradientSelectedStart">#ff5c14</color>
     <color name="searchGradientSelectedEnd">#f18200</color>
+    <color name="dropShadowBlue">#33256B9E</color>
 </resources>

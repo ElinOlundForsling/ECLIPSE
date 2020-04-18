@@ -8,6 +8,7 @@
     android:background="@drawable/bg_dtsp_10">
 
 
+
     <EditText
         android:id="@+id/editText_search"
         android:layout_width="250dp"

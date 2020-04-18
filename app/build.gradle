@@ -108,4 +108,12 @@ dependencies {
     // Gson
     // https://github.com/google/gson
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    // ShadowLib
+    // https://github.com/maciekczwa/shadowlib
+    implementation 'com.github.maciekczwa:shadowlib:1.0.2'
+
+    // RoundedImageView
+    // https://github.com/vinc3m1/RoundedImageView
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 }
