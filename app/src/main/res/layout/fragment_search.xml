@@ -1,96 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.AccountFragment"
-    android:background="@drawable/bg_dtsp_10">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-
-
-    <EditText
-        android:id="@+id/editText_search"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:autofillHints="@string/type_here"
-        android:background="@drawable/comp_search_view"
-        android:hint="@string/type_here"
-        android:inputType="textShortMessage"
-        android:padding="10dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.248"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guideline"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:background="@drawable/comp_search_button"
-        android:text="@string/search"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/editText_search"
-        app:layout_constraintTop_toTopOf="@id/guideline"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="118dp" />
+        app:tabTextColor="@color/textLight"
+        app:tabSelectedTextColor="@color/textRed"/>
 
-    <RadioGroup
-        android:id="@+id/toggle"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginStart="80dp"
-        android:background="@drawable/comp_search_toggle_outline"
-        android:checkedButton="@+id/movies_toggle"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.80"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RadioButton
-            android:id="@+id/movies_toggle"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:layout_weight="1"
-            android:background="@drawable/comp_search_toggle"
-            android:button="@null"
-            android:gravity="center"
-            android:text="@string/search_movies"
-            android:textColor="@color/white" />
-
-        <RadioButton
-            android:id="@+id/users_toggle"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginBottom="3dp"
-            android:layout_weight="1"
-            android:background="@drawable/comp_search_toggle_right"
-            android:button="@null"
-            android:gravity="center"
-            android:text="@string/search_users"
-            android:textColor="@color/white" />
-    </RadioGroup>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"/>
+</LinearLayout>

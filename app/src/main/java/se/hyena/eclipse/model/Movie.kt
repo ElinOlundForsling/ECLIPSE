@@ -10,4 +10,6 @@ data class Movie(
     @SerializedName("backdrop_path") val backdropPath: String,
     @SerializedName("vote_average") val rating: Float,
     @SerializedName("release_date") val releaseDate: String
-)
+) {
+    constructor(): this(0, "", "", "", "", 0f, "")
+}

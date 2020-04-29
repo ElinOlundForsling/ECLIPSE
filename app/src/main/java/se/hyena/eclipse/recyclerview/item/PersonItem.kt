@@ -3,9 +3,7 @@ package se.hyena.eclipse.recyclerview.item
 import android.content.Context
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
-import kotlinx.android.synthetic.main.fragment_account.*
 import kotlinx.android.synthetic.main.item_person.*
-import kotlinx.android.synthetic.main.item_person.imageView_profile_picture
 import se.hyena.eclipse.R
 import se.hyena.eclipse.glide.GlideApp
 import se.hyena.eclipse.model.User
@@ -25,7 +23,7 @@ class PersonItem (
             GlideApp.with(context)
                 .load(StorageUtil.pathToReference(person.profilePath))
                 .placeholder(R.drawable.ic_account_circle_black_24dp)
-                .into(viewHolder.imageView_profile_picture)
+                .into(viewHolder.image_view_friend_picture)
     }
 
     override fun getLayout() = R.layout.item_person

@@ -12,11 +12,6 @@ import se.hyena.eclipse.fragment.SearchFragment
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var homeFragment: HomeFragment
-    lateinit var accountFragment: AccountFragment
-    lateinit var searchFragment: SearchFragment
-    lateinit var friendsFragment: FriendsFragment
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -41,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun replaceFragment(fragment: Fragment) {
+    private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.frame_layout, fragment)

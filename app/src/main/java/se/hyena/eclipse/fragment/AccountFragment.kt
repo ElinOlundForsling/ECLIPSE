@@ -2,7 +2,6 @@ package se.hyena.eclipse.fragment
 
 import android.app.Activity
 import android.content.Intent
-import android.content.ContentResolver
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 import android.os.Build
@@ -12,16 +11,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.auth.AuthUI
+import com.google.firebase.firestore.ListenerRegistration
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.OnItemClickListener
+import com.xwray.groupie.Section
+import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
+import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.fragment_account.*
 import kotlinx.android.synthetic.main.fragment_account.view.*
 import kotlinx.android.synthetic.main.fragment_account.view.editText_name
-import se.hyena.eclipse.MainActivity
-
-import se.hyena.eclipse.R
-import se.hyena.eclipse.SignInActivity
+import se.hyena.eclipse.*
 import se.hyena.eclipse.glide.GlideApp
+import se.hyena.eclipse.recyclerview.item.WatchlistItem
 import se.hyena.eclipse.util.FirestoreUtil
 import se.hyena.eclipse.util.StorageUtil
 import java.io.ByteArrayOutputStream
@@ -33,15 +38,22 @@ class AccountFragment : Fragment() {
     private lateinit var selectedImageBytes: ByteArray
     private var pictureJustChanged = false
 
+    private lateinit var movieListenerRegistration: ListenerRegistration
+    private lateinit var movieSection: Section
+    private var shouldInitRecyclerView = true
+    private lateinit var removeFromWatchList: Button
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_account, container, false)
 
+        movieListenerRegistration = FirestoreUtil.addWatchlistListener(this.context!!, this::updateRecyclerView)
+
+
         view.apply {
-            imageView_profile_picture.setOnClickListener {
+            image_view_profile_picture.setOnClickListener {
                 val intent = Intent().apply {
                     type = "image/*"
                     action = Intent.ACTION_GET_CONTENT
@@ -77,6 +89,35 @@ class AccountFragment : Fragment() {
         return view
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        FirestoreUtil.removeListener(movieListenerRegistration)
+        shouldInitRecyclerView = true
+    }
+
+    private fun updateRecyclerView(items: List<Item>) {
+
+        fun init() {
+            recyclerview_watchlist.apply {
+                layoutManager = LinearLayoutManager(this@AccountFragment.context)
+                adapter = GroupAdapter<GroupieViewHolder>().apply {
+                    movieSection = Section(items)
+                    add(movieSection)
+                    setOnItemClickListener(onItemClick)
+                }
+            }
+            shouldInitRecyclerView = false
+        }
+
+        fun updateItems() = movieSection.update(items)
+
+        if (shouldInitRecyclerView)
+            init()
+        else
+            updateItems()
+
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == RC_SELECT_IMAGE && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
             val selectedImageUri = data.data
@@ -101,10 +142,27 @@ class AccountFragment : Fragment() {
 
             GlideApp.with(this)
                 .load(selectedImageBytes)
-                .into(imageView_profile_picture)
+                .into(image_view_profile_picture)
 
             pictureJustChanged = true
         }
+    }
+
+    private val onItemClick = OnItemClickListener { item, view ->
+        if (item is WatchlistItem) {
+            val chatIntent = Intent(this.context, MovieDetailsActivity::class.java)
+                .apply {
+                    putExtra(MOVIE_ID, item.movie.id)
+                    putExtra(MOVIE_TITLE, item.movie.title)
+                    putExtra(MOVIE_BACKDROP, item.movie.backdropPath)
+                    putExtra(MOVIE_POSTER, item.movie.posterPath)
+                    putExtra(MOVIE_OVERVIEW, item.movie.overview)
+                    putExtra(MOVIE_RATING, item.movie.rating)
+                    putExtra(MOVIE_RELEASE_DATE, item.movie.releaseDate)
+                }
+            startActivity(chatIntent)
+        }
+
     }
 
     override fun onStart() {
@@ -117,7 +175,7 @@ class AccountFragment : Fragment() {
                     GlideApp.with(this)
                         .load(StorageUtil.pathToReference(user.profilePath))
                         .placeholder(R.drawable.ic_menu_alt_profile)
-                        .into(imageView_profile_picture)
+                        .into(image_view_profile_picture)
             }
         }
     }

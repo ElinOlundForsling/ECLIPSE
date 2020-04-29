@@ -11,6 +11,7 @@ import se.hyena.eclipse.model.*
 import se.hyena.eclipse.recyclerview.item.ImageMessageItem
 import se.hyena.eclipse.recyclerview.item.PersonItem
 import se.hyena.eclipse.recyclerview.item.TextMessageItem
+import se.hyena.eclipse.recyclerview.item.WatchlistItem
 import java.lang.NullPointerException
 
 object FirestoreUtil {
@@ -26,7 +27,7 @@ object FirestoreUtil {
         currentUserDocRef.get().addOnSuccessListener { documentSnapshot ->
             if (!documentSnapshot.exists()) {
                 val newUser =
-                    User(FirebaseAuth.getInstance().currentUser?.displayName ?: "", "", null, mutableListOf(), mutableListOf())
+                    User(FirebaseAuth.getInstance().currentUser?.displayName ?: "", "", null, mutableListOf())
                 currentUserDocRef.set(newUser).addOnSuccessListener { onComplete() }
             }
             else
@@ -66,7 +67,46 @@ object FirestoreUtil {
             }
     }
 
+    fun addWatchlistListener(context: Context, onListen: (List<Item>) -> Unit) : ListenerRegistration {
+        return firestoreInstance.document("users/${FirebaseAuth.getInstance().currentUser?.uid
+            ?: throw NullPointerException("UID is null.")}").collection("watchlist")
+            .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+                if (firebaseFirestoreException != null) {
+                    Log.e("FIRESTORE", "User listener error.", firebaseFirestoreException)
+                    return@addSnapshotListener
+                }
+
+                val items = mutableListOf<Item>()
+                querySnapshot!!.documents.forEach {
+                    items.add(WatchlistItem(it.toObject(Movie::class.java)!!, it.id, context))
+                }
+                onListen(items)
+            }
+    }
+
     fun removeListener(registration: ListenerRegistration) = registration.remove()
+
+    fun addMovieToWatchlist(movieId: Long, movie: Movie, onComplete: (filmId: String) -> Unit) {
+        val movieIdToString = movieId.toString()
+        currentUserDocRef.collection("watchlist")
+            .document(movieIdToString).get().addOnSuccessListener {
+                if (it.exists()) {
+                    onComplete(it["filmId"] as String)
+                    return@addOnSuccessListener
+                }
+
+                val newMovieId = currentUserDocRef.collection("watchlist").document(movieIdToString)
+                val newMovie = Movie(movie.id, movie.title, movie.overview, movie.posterPath, movie.backdropPath, movie.rating, movie.releaseDate)
+                newMovieId.set(newMovie)
+
+                onComplete(newMovieId.id)
+            }
+    }
+
+    fun removeFromWatchlist(movieId: Long) {
+        val movieIdToString = movieId.toString()
+        currentUserDocRef.collection("watchlist").document(movieIdToString).delete()
+    }
 
     fun getOrCreateChatChannel(otherUserId: String, onComplete: (channelId: String) -> Unit) {
         currentUserDocRef.collection("engagedChatChannels")

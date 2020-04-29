@@ -60,6 +60,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.1'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'com.google.android.material:material:1.2.0-alpha02'
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
 
     // Testing
     testImplementation 'junit:junit:4.12'
@@ -116,4 +117,8 @@ dependencies {
     // RoundedImageView
     // https://github.com/vinc3m1/RoundedImageView
     implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    // Picasso
+    // https://github.com/square/picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

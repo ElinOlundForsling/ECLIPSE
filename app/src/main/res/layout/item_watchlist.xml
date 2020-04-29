@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView_item_person"
     android:layout_width="match_parent"
-    android:layout_height="91dp"
+    android:layout_height="120dp"
     android:layout_margin="4dp"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardBackgroundColor="@android:color/white"
@@ -19,53 +19,80 @@
         android:layout_height="match_parent">
 
         <pl.looksoft.shadowlib.ShadowLayout
-            android:id="@+id/shadowbox_friend_picture"
+            android:id="@+id/shadowbox_poster"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:shadowLayoutBlur="15dp"
+            android:layout_centerVertical="true"
             android:layout_marginStart="20dp"
+            app:shadowLayoutBlur="11dp"
             app:shadowLayoutColor="@color/dropShadowBlue"
             app:shadowLayoutDx="0dp"
-            app:shadowLayoutDy="5dp"
+            app:shadowLayoutDy="0dp"
             app:shadowLayoutSpread="0dp">
 
         <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/image_view_friend_picture"
-            app:riv_corner_radius="30dp"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerVertical="true"
-            tools:src="@drawable/ic_menu_alt_profile"
+            android:id="@+id/image_view_poster"
+            app:riv_corner_radius="4dp"
+            android:layout_width="61dp"
+            android:layout_height="93dp"
+
+            tools:src="@drawable/ic_menu_alt_video"
             android:contentDescription="@string/user_profile_image" />
 
         </pl.looksoft.shadowlib.ShadowLayout>
 
         <TextView
-            android:id="@+id/textView_name"
+            android:id="@+id/text_view_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/shadowbox_friend_picture"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/shadowbox_poster"
+            android:layout_marginStart="20dp"
+            android:layout_alignTop="@id/shadowbox_poster"
             android:textSize="14sp"
             android:textColor="@color/textDark"
             android:fontFamily="@font/sf_pro_display_semibold"
             android:textAppearance="@style/Base.TextAppearance.AppCompat"
-            tools:text="@string/name" />
+            tools:text="@string/movies" />
 
         <TextView
-            android:id="@+id/textView_bio"
+            android:id="@+id/text_view_release_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView_name"
-            android:layout_below="@+id/textView_name"
-            android:layout_marginStart="2dp"
+            android:layout_alignStart="@+id/text_view_title"
+            android:layout_below="@+id/text_view_title"
+            android:layout_marginStart="0dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@color/textLight"
             android:fontFamily="@font/circe"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-            tools:text="@string/bio" />
+            tools:text="@string/movies" />
+
+        <pl.looksoft.shadowlib.ShadowLayout
+            android:id="@+id/shadowbox_remove_from_watchlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_release_year"
+            android:layout_toEndOf="@id/shadowbox_poster"
+            android:layout_marginStart="10dp"
+            app:shadowLayoutBlur="10dp"
+            app:shadowLayoutColor="@color/dropShadowBlue"
+            app:shadowLayoutDx="0dp"
+            app:shadowLayoutDy="0dp"
+            app:shadowLayoutSpread="0dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:padding="10dp"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:text="@string/remove_from_watchlist"
+            android:textAllCaps="false"
+            android:textColor="@color/textMid"
+            android:fontFamily="@font/circe"
+
+            android:background="@drawable/comp_textfile_dropshadow"/>
+    </pl.looksoft.shadowlib.ShadowLayout>
 
         <View
             android:id="@+id/divider2"
@@ -76,7 +103,6 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:background="#EFEFEF" />
-
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

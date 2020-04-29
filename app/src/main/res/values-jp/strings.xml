@@ -24,15 +24,22 @@
     <string name="stay_updated">Stay updated with the latest movies</string>
 
     <!-- MOVIES -->
+    <string name="movies">Movies</string>
     <string name="movie_poster">Movie Poster</string>
     <string name="movie_header">Movie Header</string>
 
+    <!-- WATCHLIST -->
+    <string name="add_to_watchlist">Add to watchlist</string>
+    <string name="remove_from_watchlist">Remove from Watchlist</string>
+
     <!-- SEARCH -->
     <string name="type_here">Type here…</string>
-    <string name="search_movies">MOVIES</string>
-    <string name="search_users">USERS</string>
+    <string name="search_movies">Search for movies</string>
+    <string name="search_tv">Search for TV shows</string>
 
     <!-- FRIENDS -->
+    <string name="search_users">Search for users</string>
+    <string name="friend_list">Your friend list</string>
 
     <!-- CHAT -->
     <string name="type_message">メッセージ</string>

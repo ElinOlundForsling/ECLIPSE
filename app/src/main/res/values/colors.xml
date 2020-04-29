@@ -8,6 +8,7 @@
     <color name="textDark">#696B6F</color>
     <color name="textMid">#888888</color>
     <color name="textLight">#AEAEAE</color>
+    <color name="textRed">#CBA5B9</color>
     <color name="home">#ffeaa7</color>
     <color name="homeDark">#E19300</color>
     <color name="search">#99CCFF</color>
@@ -15,10 +16,11 @@
     <color name="friends">#FFB5B4</color>
     <color name="friendsDark">#d63031</color>
     <color name="profile">#8FFFE0</color>
-    <color name="profileDark">#009579</color>
+    <color name="profileDark">#009579</color>§
     <color name="searchGradientStart">#FF8D14</color>
     <color name="searchGradientEnd">#FFA60B</color>
     <color name="searchGradientSelectedStart">#ff5c14</color>
     <color name="searchGradientSelectedEnd">#f18200</color>
     <color name="dropShadowBlue">#33256B9E</color>
+    <color name="dropShadowBlueSolid">#4D93C7</color>
 </resources>

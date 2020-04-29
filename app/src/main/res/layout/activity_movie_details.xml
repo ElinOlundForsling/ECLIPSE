@@ -1,5 +1,6 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -24,7 +25,6 @@
             android:layout_width="128dp"
             android:layout_height="172dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp"
             app:cardCornerRadius="4dp"
             app:layout_constraintBottom_toBottomOf="@+id/backdrop_guideline"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,9 +83,9 @@
 
         <RatingBar
             android:id="@+id/movie_rating"
-            style="@style/Widget.AppCompat.RatingBar.Small"
-            android:progressTint="@color/dropShadowBlue"
-            android:secondaryProgressTint="@color/dropShadowBlue"
+            style="@style/CustomRatingBar"
+            android:progressTint="@color/dropShadowBlueSolid"
+            android:secondaryProgressTint="@color/textLight"
             android:progressBackgroundTint="@color/textLight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -94,5 +94,21 @@
             app:layout_constraintHorizontal_bias="0.085"
             app:layout_constraintStart_toEndOf="@+id/movie_poster_card"
             app:layout_constraintTop_toBottomOf="@+id/movie_title" />
+
+        <Button
+            android:id="@+id/add_to_watchlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/comp_textfile_dropshadow"
+            android:fontFamily="@font/circe"
+            android:padding="10dp"
+            android:text="@string/add_to_watchlist"
+            android:textColor="@color/textDark"
+            app:layout_constraintBottom_toTopOf="@+id/backdrop_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/movie_poster_card"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.90" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
