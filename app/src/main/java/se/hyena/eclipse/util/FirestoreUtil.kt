@@ -8,10 +8,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import com.xwray.groupie.kotlinandroidextensions.Item
 import se.hyena.eclipse.model.*
-import se.hyena.eclipse.recyclerview.item.ImageMessageItem
-import se.hyena.eclipse.recyclerview.item.PersonItem
-import se.hyena.eclipse.recyclerview.item.TextMessageItem
-import se.hyena.eclipse.recyclerview.item.WatchlistItem
+import se.hyena.eclipse.recyclerview.item.*
 import java.lang.NullPointerException
 
 object FirestoreUtil {
@@ -22,6 +19,7 @@ object FirestoreUtil {
             ?: throw NullPointerException("UID is null.")}")
 
     private val chatChannelsCollectionRef = firestoreInstance.collection("chatChannels")
+    val usersCollectionRef = firestoreInstance.collection("users")
 
     fun initCurrentUserIfFirstTime(onComplete: () -> Unit) {
         currentUserDocRef.get().addOnSuccessListener { documentSnapshot ->
@@ -61,6 +59,23 @@ object FirestoreUtil {
                 val items = mutableListOf<Item>()
                 querySnapshot!!.documents.forEach {
                     if (it.id != FirebaseAuth.getInstance().currentUser?.uid)
+                        items.add(FriendItem(it.toObject(User::class.java)!!, it.id, context))
+                }
+                onListen(items)
+            }
+    }
+
+    fun addSearchResultListener(context: Context, searchText: String, onListen: (List<Item>) -> Unit): ListenerRegistration {
+        return firestoreInstance.collection("users").orderBy("name").startAt(searchText).endAt(searchText + "\uf8ff")
+            .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+                if (firebaseFirestoreException != null) {
+                    Log.e("FIRESTORE", "User listener error.", firebaseFirestoreException)
+                    return@addSnapshotListener
+                }
+
+                val items = mutableListOf<Item>()
+                querySnapshot!!.documents.forEach {
+                    if (it.id != FirebaseAuth.getInstance().currentUser?.uid)
                         items.add(PersonItem(it.toObject(User::class.java)!!, it.id, context))
                 }
                 onListen(items)
@@ -79,6 +94,22 @@ object FirestoreUtil {
                 val items = mutableListOf<Item>()
                 querySnapshot!!.documents.forEach {
                     items.add(WatchlistItem(it.toObject(Movie::class.java)!!, it.id, context))
+                }
+                onListen(items)
+            }
+    }
+
+    fun addFriendWatchlistListener(context: Context, friendId: String, onListen: (List<Item>) -> Unit) : ListenerRegistration {
+        return firestoreInstance.document("users/${friendId}").collection("watchlist")
+            .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+                if (firebaseFirestoreException != null) {
+                    Log.e("FIRESTORE", "User listener error.", firebaseFirestoreException)
+                    return@addSnapshotListener
+                }
+
+                val items = mutableListOf<Item>()
+                querySnapshot!!.documents.forEach {
+                    items.add(FriendWatchlistItem(it.toObject(Movie::class.java)!!, it.id, context))
                 }
                 onListen(items)
             }
