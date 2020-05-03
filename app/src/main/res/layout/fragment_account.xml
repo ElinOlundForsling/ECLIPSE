@@ -2,6 +2,7 @@
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent">
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -136,6 +137,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/comp_account_button"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:shadowRadius="0"
         android:text="@string/save"
         android:textColor="@color/textMid"
         app:layout_constraintBottom_toTopOf="@id/linear_layout_watchlist"
@@ -152,6 +155,18 @@
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/btn_save"
         app:layout_constraintBottom_toTopOf="@id/btn_sign_out">
+
+        <TextView
+            android:id="@+id/text_view_friend_profile_watchlist_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/your_watchlist"
+            android:fontFamily="@font/sf_pro_display_semibold"
+            android:textColor="@color/textDark"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="32dp"
+            android:textSize="16sp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_watchlist"
@@ -170,6 +185,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/comp_account_button"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:shadowRadius="0"
         android:text="@string/sign_out"
         android:textColor="@color/textMid"
         app:layout_constraintTop_toBottomOf="@id/linear_layout_watchlist"

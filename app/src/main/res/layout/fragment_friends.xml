@@ -3,6 +3,7 @@
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent">
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -14,7 +15,7 @@
     android:background="@color/white">
 
     <pl.looksoft.shadowlib.ShadowLayout
-        android:id="@+id/shadowbox_searchbar"
+        android:id="@+id/shadowbox_search_bar_users"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/recycler_view_people"
@@ -30,7 +31,7 @@
         app:shadowLayoutSpread="0dp">
 
 <EditText
-    android:id="@+id/users_searchbar"
+    android:id="@+id/search_bar_users"
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:padding="10dp"
@@ -45,15 +46,24 @@
     android:textColorHint="@color/textLight"
     android:autofillHints="@string/search_users"
     android:hint="@string/search_users"
-    android:inputType="textShortMessage"/>
+    android:inputType="text"
+    android:imeOptions="actionSearch"/>
 
     </pl.looksoft.shadowlib.ShadowLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_search_results_users"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/shadowbox_search_bar_users">
+    </androidx.recyclerview.widget.RecyclerView>
 
     <TextView
         android:id="@+id/text_view_friend_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/shadowbox_searchbar"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_view_search_results_users"
         android:text="@string/friend_list"
         android:textColor="@color/textDark"
         android:fontFamily="@font/sf_pro_display_semibold"

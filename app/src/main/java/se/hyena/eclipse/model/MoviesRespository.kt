@@ -1,10 +1,13 @@
 package se.hyena.eclipse.model
 
+import android.content.Context
+import com.xwray.groupie.kotlinandroidextensions.Item
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import se.hyena.eclipse.recyclerview.item.SearchItem
 
 object MoviesRepository {
 
@@ -111,10 +114,12 @@ object MoviesRepository {
 
     fun getSearchResults(
         page: Int = 1,
-        onSuccess: (movies: List<Movie>) -> Unit,
+        searchQuery: String,
+        context: Context,
+        onSuccess: (movies: MutableList<Item>) -> Unit,
         onError: () -> Unit
     ) {
-        api.getSearchResults(page = page)
+        api.getSearchResults(page = page, query = searchQuery)
             .enqueue(object : Callback<GetMoviesResponse> {
                 override fun onResponse(
                     call: Call<GetMoviesResponse>,
@@ -124,7 +129,14 @@ object MoviesRepository {
                         val responseBody = response.body()
 
                         if (responseBody != null) {
-                            onSuccess.invoke(responseBody.movies)
+                            val items = mutableListOf<Item>()
+                            responseBody.movies.forEach {
+                                items.add(SearchItem(it, it.id, context))
+                            }
+
+
+                            //onSuccess.invoke(responseBody.movies)
+                            onSuccess.invoke(items)
                         } else {
                             onError.invoke()
                         }

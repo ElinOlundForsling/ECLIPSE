@@ -40,13 +40,13 @@ class SearchAdapter(val context: Context, val namelist:List<Search>, val check:B
         val item1= this.namelist[position]
 
 
-        holder.itemView.ltView.text = item1.original_title
+        holder.itemView.text_view_search_result.text = item1.original_title
 
         var target : String
 
         target = item1.poster_path
 
-        Picasso.get().load(baseURL + target).into(holder.itemView.liView)
+        Picasso.get().load(baseURL + target).into(holder.itemView.image_view_search_result)
 
 
 

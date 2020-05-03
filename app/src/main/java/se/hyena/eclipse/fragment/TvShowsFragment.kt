@@ -8,9 +8,6 @@ import android.view.ViewGroup
 
 import se.hyena.eclipse.R
 
-/**
- * A simple [Fragment] subclass.
- */
 class TvShowsFragment : Fragment() {
 
     override fun onCreateView(

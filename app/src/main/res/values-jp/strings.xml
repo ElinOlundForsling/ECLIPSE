@@ -29,17 +29,20 @@
     <string name="movie_header">Movie Header</string>
 
     <!-- WATCHLIST -->
-    <string name="add_to_watchlist">Add to watchlist</string>
+    <string name="add_to_watchlist">ウォッチリストに追加する</string>
     <string name="remove_from_watchlist">Remove from Watchlist</string>
 
     <!-- SEARCH -->
     <string name="type_here">Type here…</string>
-    <string name="search_movies">Search for movies</string>
-    <string name="search_tv">Search for TV shows</string>
+    <string name="search_movies">映画を捜す</string>
+    <string name="search_tv">番組を捜す</string>
 
     <!-- FRIENDS -->
     <string name="search_users">Search for users</string>
-    <string name="friend_list">Your friend list</string>
+    <string name="friend_list">Your Friend List</string>
+    <string name="chat">Chat</string>
+    <string name="match_movies">Match Movies!</string>
+    <string name="add_friend">Add friend</string>
 
     <!-- CHAT -->
     <string name="type_message">メッセージ</string>
@@ -51,6 +54,8 @@
     <string name="save">セーブ</string>
     <string name="sign_out">ログアウト</string>
     <string name="user_profile_image">プロフィール画像</string>
+    <string name="watchlist">ウォッチリスト</string>
+    <string name="your_watchlist">Your Watchlist</string>
 
     <!-- ERRORS -->
     <string name="error_fetch_movies">Please check your internet connection</string>

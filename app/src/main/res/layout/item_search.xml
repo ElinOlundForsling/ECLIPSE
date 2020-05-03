@@ -27,7 +27,7 @@
 
         <ImageView
 
-            android:id="@+id/liView"
+            android:id="@+id/image_view_search_result"
             android:layout_width="160sp"
             android:layout_height="170sp"
             android:layout_gravity="center"
@@ -37,7 +37,7 @@
         <TextView
 
 
-            android:id="@+id/ltView"
+            android:id="@+id/text_view_search_result"
             android:layout_width="match_parent"
             android:layout_height="40sp"
             android:layout_marginLeft="10sp"

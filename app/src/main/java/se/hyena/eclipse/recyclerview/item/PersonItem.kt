@@ -17,12 +17,12 @@ class PersonItem (
 )
     : Item() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-        viewHolder.textView_name.text = person.name
-        viewHolder.textView_bio.text = person.bio
+        viewHolder.text_view_name.text = person.name
+        viewHolder.text_view_friend_profile_bio.text = person.bio
         if (person.profilePath != null)
             GlideApp.with(context)
                 .load(StorageUtil.pathToReference(person.profilePath))
-                .placeholder(R.drawable.ic_account_circle_black_24dp)
+                .placeholder(R.drawable.ic_menu_alt_profile)
                 .into(viewHolder.image_view_friend_picture)
     }
 

@@ -38,7 +38,10 @@
 
     <!-- FRIENDS -->
     <string name="search_users">Search for users</string>
-    <string name="friend_list">Your friend list</string>
+    <string name="friend_list">Your Friend List</string>
+    <string name="chat">Chat</string>
+    <string name="match_movies">Match</string>
+    <string name="add_friend">Add friend</string>
 
     <!-- CHAT -->
     <string name="type_message">Type Message</string>
@@ -50,6 +53,8 @@
     <string name="save">Save</string>
     <string name="sign_out">Sign Out</string>
     <string name="user_profile_image">User Profile Image</string>
+    <string name="watchlist">Watchlist</string>
+    <string name="your_watchlist">Your Watchlist</string>
 
     <!-- ERRORS -->
     <string name="error_fetch_movies">Please check your internet connection</string>

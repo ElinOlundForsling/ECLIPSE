@@ -16,9 +16,7 @@ import kotlinx.android.synthetic.main.fragment_search.*
 import se.hyena.eclipse.R
 
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class SearchFragment : Fragment() {
 
     private lateinit var viewPager: ViewPager2
@@ -44,7 +42,6 @@ class SearchFragment : Fragment() {
                 1 -> tab.text = "TV Shows"
                 else -> tab.text = "Movies"
             }
-            //tab.text = "Tab $position"
             viewPager.setCurrentItem(tab.position, true)
         }.attach()
     }

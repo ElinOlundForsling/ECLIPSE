@@ -19,7 +19,7 @@
         android:layout_height="match_parent">
 
         <pl.looksoft.shadowlib.ShadowLayout
-            android:id="@+id/shadowbox_poster"
+            android:id="@+id/shadowbox_friend_watchlist_poster"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -30,24 +30,24 @@
             app:shadowLayoutDy="0dp"
             app:shadowLayoutSpread="0dp">
 
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/image_view_poster"
-            app:riv_corner_radius="4dp"
-            android:layout_width="61dp"
-            android:layout_height="93dp"
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/image_friend_watchlist_view_poster"
+                app:riv_corner_radius="4dp"
+                android:layout_width="61dp"
+                android:layout_height="93dp"
 
-            tools:src="@drawable/ic_menu_alt_video"
-            android:contentDescription="@string/user_profile_image" />
+                tools:src="@drawable/ic_menu_alt_video"
+                android:contentDescription="@string/user_profile_image" />
 
         </pl.looksoft.shadowlib.ShadowLayout>
 
         <TextView
-            android:id="@+id/text_view_title"
+            android:id="@+id/text_view_friend_watchlist_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/shadowbox_poster"
+            android:layout_toEndOf="@id/shadowbox_friend_watchlist_poster"
             android:layout_marginStart="20dp"
-            android:layout_alignTop="@id/shadowbox_poster"
+            android:layout_alignTop="@id/shadowbox_friend_watchlist_poster"
             android:textSize="14sp"
             android:textColor="@color/textDark"
             android:fontFamily="@font/sf_pro_display_semibold"
@@ -55,11 +55,11 @@
             tools:text="@string/movies" />
 
         <TextView
-            android:id="@+id/text_view_release_year"
+            android:id="@+id/text_view_friend_watchlist_release_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/text_view_title"
-            android:layout_below="@+id/text_view_title"
+            android:layout_alignStart="@+id/text_view_friend_watchlist_title"
+            android:layout_below="@+id/text_view_friend_watchlist_title"
             android:layout_marginStart="0dp"
             android:ellipsize="end"
             android:maxLines="1"
@@ -69,33 +69,33 @@
             tools:text="@string/movies" />
 
         <pl.looksoft.shadowlib.ShadowLayout
-            android:id="@+id/shadowbox_remove_from_watchlist"
+            android:id="@+id/shadowbox_friend_watchlist_remove_from_watchlist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_release_year"
-            android:layout_toEndOf="@id/shadowbox_poster"
+            android:layout_below="@id/text_view_friend_watchlist_release_year"
+            android:layout_toEndOf="@id/shadowbox_friend_watchlist_poster"
             android:layout_marginStart="10dp"
             app:shadowLayoutBlur="10dp"
             app:shadowLayoutColor="@color/dropShadowBlue"
             app:shadowLayoutDx="0dp"
             app:shadowLayoutDy="0dp"
             app:shadowLayoutSpread="0dp">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="37dp"
-            android:padding="10dp"
-            android:paddingEnd="20dp"
-            android:paddingStart="20dp"
-            android:text="@string/remove_from_watchlist"
-            android:textAllCaps="false"
-            android:textColor="@color/textMid"
-            android:fontFamily="@font/circe"
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:padding="10dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:text="@string/remove_from_watchlist"
+                android:textAllCaps="false"
+                android:textColor="@color/textMid"
+                android:fontFamily="@font/circe"
 
-            android:background="@drawable/comp_textfile_dropshadow"/>
-    </pl.looksoft.shadowlib.ShadowLayout>
+                android:background="@drawable/comp_textfile_dropshadow"/>
+        </pl.looksoft.shadowlib.ShadowLayout>
 
         <View
-            android:id="@+id/divider_bottom"
+            android:id="@+id/divider_friend_watchlist_bottom"
             android:layout_width="match_parent"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"

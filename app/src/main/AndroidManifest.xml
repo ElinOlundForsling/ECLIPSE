@@ -12,16 +12,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MovieDetailsActivity"></activity>
+        <activity android:name=".MovieMatchActivity"></activity>
+        <activity android:name=".FriendProfileActivity" />
+        <activity android:name=".MovieDetailsActivity" />
         <activity
             android:name=".ChatActivity"
             android:theme="@style/ChatTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+
             <intent-filter>
-                <action android:name="ChatActivity"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="ChatActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity

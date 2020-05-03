@@ -115,6 +115,52 @@ object FirestoreUtil {
             }
     }
 
+    fun addMatchlistListener(context: Context, friendId: String, onListen: (List<Item>) -> Unit) : ListenerRegistration {
+
+        val userItems = mutableListOf<Item>()
+        val userItemIds = mutableListOf<String>()
+
+        firestoreInstance.document("users/${FirebaseAuth.getInstance().currentUser?.uid
+            ?: throw NullPointerException("UID is null.")}").collection("watchlist")
+            .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+                if (firebaseFirestoreException != null) {
+                    Log.e("FIRESTORE", "User listener error.", firebaseFirestoreException)
+                    return@addSnapshotListener
+                }
+
+                querySnapshot!!.documents.forEach {
+                    userItems.add(MatchlistItem(it.toObject(Movie::class.java)!!, it.id, context))
+                    userItemIds.add(it.id)
+                    userItems.forEach { it1 ->
+                        Log.i("all items", it1.id.toString())
+                    }
+                }
+            }
+
+        return firestoreInstance.document("users/${friendId}").collection("watchlist")
+            .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+                if (firebaseFirestoreException != null) {
+                    Log.e("FIRESTORE", "User listener error.", firebaseFirestoreException)
+                    return@addSnapshotListener
+                }
+
+                val friendItems = mutableListOf<Item>()
+                val items = mutableListOf<Item>()
+                querySnapshot!!.documents.forEach {
+                    friendItems.add(MatchlistItem(it.toObject(Movie::class.java)!!, it.id, context))
+
+                    userItemIds.forEach { it1 ->
+                        Log.i("all items", it1)
+                        if (it1 == it.id) {
+                            items.add(MatchlistItem(it.toObject(Movie::class.java)!!, it.id, context))
+                        }
+                    }
+                }
+
+                onListen(items)
+            }
+    }
+
     fun removeListener(registration: ListenerRegistration) = registration.remove()
 
     fun addMovieToWatchlist(movieId: Long, movie: Movie, onComplete: (filmId: String) -> Unit) {

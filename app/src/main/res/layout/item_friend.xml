@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView_item_person"
+    android:layout_width="match_parent"
+    android:layout_height="91dp"
+    android:layout_margin="4dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@android:color/white"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="0dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <pl.looksoft.shadowlib.ShadowLayout
+            android:id="@+id/shadowbox_friend_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:shadowLayoutBlur="15dp"
+            android:layout_marginStart="20dp"
+            app:shadowLayoutColor="@color/dropShadowBlue"
+            app:shadowLayoutDx="0dp"
+            app:shadowLayoutDy="5dp"
+            app:shadowLayoutSpread="0dp">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/image_view_friend_picture"
+                app:riv_corner_radius="30dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                tools:src="@drawable/ic_menu_alt_profile"
+                android:contentDescription="@string/user_profile_image" />
+
+        </pl.looksoft.shadowlib.ShadowLayout>
+
+        <TextView
+            android:id="@+id/text_view_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/shadowbox_friend_picture"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="14sp"
+            android:textColor="@color/textDark"
+            android:fontFamily="@font/sf_pro_display_semibold"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            tools:text="@string/name" />
+
+        <TextView
+            android:id="@+id/text_view_friend_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/text_view_name"
+            android:layout_below="@+id/text_view_name"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="0dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/textLight"
+            android:fontFamily="@font/circe"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            tools:text="@string/bio" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/shadowbox_friend_picture"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@id/divider_bottom"
+            android:layout_below="@id/text_view_friend_bio"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="32dp">
+
+            <View
+                android:id="@+id/divider_top"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerHorizontal="true"
+                android:background="#EFEFEF" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider_top">
+
+                <Button
+                    android:id="@+id/button_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:minWidth="0dp"
+                    android:background="@drawable/comp_invisible_button"
+                    android:elevation="0dp"
+                    android:shadowRadius="0"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowColor="@color/white"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:fontFamily="@font/circe"
+                    android:text="@string/profile"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textRed"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" >
+                </Space>
+
+                <View
+                    android:id="@+id/divider_mid1"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#EFEFEF" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" >
+                </Space>
+
+                <Button
+                    android:id="@+id/button_chat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:minWidth="0dp"
+                    android:background="@drawable/comp_invisible_button"
+                    android:elevation="0dp"
+                    android:shadowRadius="0"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowColor="@color/white"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:fontFamily="@font/circe"
+                    android:text="@string/chat"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textRed"/>
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" >
+                </Space>
+
+                <View
+                    android:id="@+id/divider_mid2"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#EFEFEF" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" >
+                </Space>
+
+                <Button
+                    android:id="@+id/button_match"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:minWidth="0dp"
+                    android:background="@drawable/comp_invisible_button"
+                    android:elevation="0dp"
+                    android:shadowRadius="0"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowColor="@color/white"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:fontFamily="@font/circe"
+                    android:text="@string/match_movies"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textRed"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+        <View
+            android:id="@+id/divider_bottom"
+            android:layout_width="match_parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="#EFEFEF" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
