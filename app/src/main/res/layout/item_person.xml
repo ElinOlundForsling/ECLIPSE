@@ -101,7 +101,7 @@
                 android:textColor="@color/textMid"
                 android:fontFamily="@font/circe"
 
-                android:background="@drawable/comp_textfile_dropshadow"/>
+                android:background="@drawable/comp_rounded_box_drop_shadow"/>
         </pl.looksoft.shadowlib.ShadowLayout>
     </RelativeLayout>
 

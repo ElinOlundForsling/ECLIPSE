@@ -99,7 +99,7 @@
             android:id="@+id/add_to_watchlist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/comp_textfile_dropshadow"
+            android:background="@drawable/comp_rounded_box_drop_shadow"
             android:fontFamily="@font/circe"
             android:padding="10dp"
             android:text="@string/add_to_watchlist"

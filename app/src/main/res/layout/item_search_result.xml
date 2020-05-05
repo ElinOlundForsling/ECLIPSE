@@ -1,55 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/parentLayout"
-    android:layout_width="140sp"
-    android:layout_height="210sp"
-    android:layout_margin="10sp"
-    android:elevation="10sp"
-    android:orientation="vertical"
-    app:cardCornerRadius="9sp">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView_item_person"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_margin="4dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@android:color/white"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="0dp">
 
     <RelativeLayout
-        android:layout_width="140sp"
-        android:layout_height="210sp"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <ProgressBar
-            android:id="@+id/progressBarcv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:scaleX="0.10"
-            android:scaleY="0.10"
-            android:textColor="@color/colorAccent"
-            android:visibility="visible" />
 
-        <ImageView
 
-            android:id="@+id/image_view_search_result"
-            android:layout_width="140sp"
-            android:layout_height="170sp"
-            android:layout_gravity="center"
-            android:background="#00FFFFFF" />
+        <pl.looksoft.shadowlib.ShadowLayout
+            android:id="@+id/shadowbox_search_poster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            app:shadowLayoutBlur="11dp"
+            app:shadowLayoutColor="@color/dropShadowBlue"
+            app:shadowLayoutDx="0dp"
+            app:shadowLayoutDy="0dp"
+            app:shadowLayoutSpread="0dp">
+
+            <ProgressBar
+                android:id="@+id/progressBarcv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:scaleX="0.50"
+                android:scaleY="0.50"
+                android:textColor="@color/colorAccent"
+                android:visibility="visible" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/image_view_search_poster"
+                app:riv_corner_radius="4dp"
+                android:layout_width="61dp"
+                android:layout_height="93dp"
+
+                tools:src="@drawable/ic_menu_alt_video"
+                android:contentDescription="@string/movie_poster" />
+
+        </pl.looksoft.shadowlib.ShadowLayout>
 
         <TextView
+            android:id="@+id/text_view_search_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/shadowbox_search_poster"
+            android:layout_marginStart="20dp"
+            android:layout_alignTop="@id/shadowbox_search_poster"
+            android:textSize="14sp"
+            android:textColor="@color/textDark"
+            android:fontFamily="@font/sf_pro_display_semibold"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat"
+            tools:text="@string/movies" />
 
+        <TextView
+            android:id="@+id/text_view_search_release_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/text_view_search_title"
+            android:layout_below="@+id/text_view_search_title"
+            android:layout_marginStart="0dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/textLight"
+            android:fontFamily="@font/circe"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            tools:text="@string/movies" />
 
-            android:id="@+id/text_view_search_result"
+        <pl.looksoft.shadowlib.ShadowLayout
+            android:id="@+id/shadowbox_search_remove_from_watchlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_search_release_year"
+            android:layout_toEndOf="@id/shadowbox_search_poster"
+            android:layout_marginStart="10dp"
+            app:shadowLayoutBlur="10dp"
+            app:shadowLayoutColor="@color/dropShadowBlue"
+            app:shadowLayoutDx="0dp"
+            app:shadowLayoutDy="0dp"
+            app:shadowLayoutSpread="0dp">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:padding="10dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:text="@string/add_to_watchlist"
+                android:textAllCaps="false"
+                android:textColor="@color/textMid"
+                android:fontFamily="@font/circe"
+
+                android:background="@drawable/comp_rounded_box_drop_shadow"/>
+        </pl.looksoft.shadowlib.ShadowLayout>
+
+        <View
+            android:id="@+id/divider_search_bottom"
             android:layout_width="match_parent"
-            android:layout_height="40sp"
-            android:layout_marginLeft="10sp"
-            android:layout_marginTop="170sp"
-            android:layout_marginRight="5sp"
-            android:gravity="center"
-
-
-            android:textColor="@android:color/darker_gray"
-
-            android:textSize="15sp" />
-
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="#EFEFEF" />
     </RelativeLayout>
-
 
 </androidx.cardview.widget.CardView>

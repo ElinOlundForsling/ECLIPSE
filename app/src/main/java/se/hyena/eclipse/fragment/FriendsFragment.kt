@@ -61,7 +61,7 @@ class FriendsFragment : Fragment() {
         searchResults = view.findViewById(R.id.recycler_view_search_results_users)
 
         searchBar.setOnEditorActionListener { v, actionId, event ->
-            Log.i("I'm", "trigged")
+            Log.i("I'm", "triggered")
             if(actionId == EditorInfo.IME_ACTION_SEARCH){
 
                 val searchText = searchBar.text.toString()

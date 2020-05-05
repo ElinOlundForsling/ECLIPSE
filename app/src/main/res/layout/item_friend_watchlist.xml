@@ -37,7 +37,7 @@
                 android:layout_height="93dp"
 
                 tools:src="@drawable/ic_menu_alt_video"
-                android:contentDescription="@string/user_profile_image" />
+                android:contentDescription="@string/movie_poster" />
 
         </pl.looksoft.shadowlib.ShadowLayout>
 
@@ -86,12 +86,12 @@
                 android:padding="10dp"
                 android:paddingEnd="20dp"
                 android:paddingStart="20dp"
-                android:text="@string/remove_from_watchlist"
+                android:text="@string/add_to_watchlist"
                 android:textAllCaps="false"
                 android:textColor="@color/textMid"
                 android:fontFamily="@font/circe"
 
-                android:background="@drawable/comp_textfile_dropshadow"/>
+                android:background="@drawable/comp_rounded_box_drop_shadow"/>
         </pl.looksoft.shadowlib.ShadowLayout>
 
         <View

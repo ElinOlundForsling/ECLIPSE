@@ -1,7 +1,11 @@
 package se.hyena.eclipse
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,6 +35,9 @@ class FriendProfileActivity : AppCompatActivity() {
     private lateinit var friendWatchlistTitle: TextView
     private lateinit var friendProfilePicture: ImageView
     private lateinit var friendWatchlist: RecyclerView
+    private lateinit var friendChatButton: Button
+    private lateinit var friendMatchButton: Button
+    private lateinit var friendBefriendButton: Button
 
     private lateinit var friendIdExtra: String
     private lateinit var friendNameExtra: String
@@ -52,6 +59,9 @@ class FriendProfileActivity : AppCompatActivity() {
         friendProfilePicture = findViewById(R.id.image_view_friend_profile_picture)
         friendWatchlist = findViewById(R.id.recycler_view_friend_profile_watchlist)
         friendWatchlistTitle = findViewById(R.id.text_view_friend_profile_watchlist_title)
+        friendChatButton = findViewById(R.id.button_friend_profile_chat)
+        friendMatchButton = findViewById(R.id.button_friend_profile_match)
+        friendBefriendButton = findViewById(R.id.button_friend_profile_befriend)
 
         val extras = intent.extras
 
@@ -61,7 +71,34 @@ class FriendProfileActivity : AppCompatActivity() {
             finish()
         }
 
+        friendChatButton.setOnClickListener(onChatButtonClick)
+        friendMatchButton.setOnClickListener(onMatchButtonClick)
+        friendBefriendButton.setOnClickListener(onBefriendButtonClick)
 
+
+    }
+
+    private val onChatButtonClick = View.OnClickListener { view ->
+        val chatIntent = Intent(this, ChatActivity::class.java)
+            .apply {
+                putExtra(AppConstants.USER_NAME, friendNameExtra)
+                putExtra(AppConstants.USER_ID, friendIdExtra)
+            }
+        this.startActivity(chatIntent)
+    }
+
+    private val onBefriendButtonClick = View.OnClickListener { view ->
+        // TODO: Befriend user
+    }
+
+    private val onMatchButtonClick = View.OnClickListener { view ->
+        val matchIntent = Intent(this, MovieMatchActivity::class.java)
+            .apply {
+                putExtra(FRIEND_ID, friendIdExtra)
+                putExtra(FRIEND_NAME, friendNameExtra)
+                putExtra(FRIEND_PROFILE_PICTURE_PATH, friendProfilePicturePathExtra)
+            }
+        this.startActivity(matchIntent)
     }
 
     private fun populateDetails(extras: Bundle) {
