@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- MAIN -->
-    <string name="app_name">ECLIPSE</string>
+    <string name="app_name" tools:ignore="PrivateResource">ECLIPSE</string>
 
     <!-- SIGN IN -->
     <string name="email">メール</string>
@@ -43,6 +43,7 @@
     <string name="chat">Chat</string>
     <string name="match_movies">Match Movies!</string>
     <string name="add_friend">Add friend</string>
+    <string name="remove_friend">Remove friend</string>
 
     <!-- CHAT -->
     <string name="type_message">メッセージ</string>
@@ -58,7 +59,9 @@
     <string name="your_watchlist">Your Watchlist</string>
 
     <!-- ERRORS -->
-    <string name="error_fetch_movies">Please check your internet connection</string>
+    <string name="error_fetch_movies">無線LAN機能が有効になっているか状態を確認してください</string>
+    <string name="no_data">データがない</string>
+    <string name="no_results">結果がない</string>
 
     <!-- TEMP -->
     <string name="hello_blank_fragment">こんにちは、世界</string>

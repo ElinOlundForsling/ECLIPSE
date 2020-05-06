@@ -69,7 +69,7 @@
             tools:text="@string/movies" />
 
         <pl.looksoft.shadowlib.ShadowLayout
-            android:id="@+id/shadowbox_remove_from_watchlist"
+            android:id="@+id/shadowbox_add_remove_friend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_view_release_year"
@@ -81,6 +81,7 @@
             app:shadowLayoutDy="0dp"
             app:shadowLayoutSpread="0dp">
         <Button
+            android:id="@+id/button_remove_from_watchlist"
             android:layout_width="wrap_content"
             android:layout_height="37dp"
             android:padding="10dp"

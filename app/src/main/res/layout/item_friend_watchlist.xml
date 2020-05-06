@@ -31,7 +31,7 @@
             app:shadowLayoutSpread="0dp">
 
             <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/image_friend_watchlist_view_poster"
+                android:id="@+id/image_view_friend_watchlist_poster"
                 app:riv_corner_radius="4dp"
                 android:layout_width="61dp"
                 android:layout_height="93dp"
@@ -80,18 +80,38 @@
             app:shadowLayoutDx="0dp"
             app:shadowLayoutDy="0dp"
             app:shadowLayoutSpread="0dp">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="37dp"
-                android:padding="10dp"
-                android:paddingEnd="20dp"
-                android:paddingStart="20dp"
-                android:text="@string/add_to_watchlist"
-                android:textAllCaps="false"
-                android:textColor="@color/textMid"
-                android:fontFamily="@font/circe"
 
-                android:background="@drawable/comp_rounded_box_drop_shadow"/>
+            <ViewFlipper
+                android:id="@+id/view_flipper_friend_watchlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/button_add_to_watchlist_friend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+                    android:padding="10dp"
+                    android:paddingEnd="20dp"
+                    android:paddingStart="20dp"
+                    android:text="@string/add_to_watchlist"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textMid"
+                    android:fontFamily="@font/circe"
+                    android:background="@drawable/comp_rounded_box_drop_shadow"/>
+
+                <Button
+                    android:id="@+id/button_remove_from_watchlist_friend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+                    android:padding="10dp"
+                    android:paddingEnd="20dp"
+                    android:paddingStart="20dp"
+                    android:text="@string/remove_from_watchlist"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textMid"
+                    android:fontFamily="@font/circe"
+                    android:background="@drawable/comp_rounded_box_drop_shadow"/>
+            </ViewFlipper>
         </pl.looksoft.shadowlib.ShadowLayout>
 
         <View

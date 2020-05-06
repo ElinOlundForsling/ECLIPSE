@@ -92,7 +92,13 @@
             app:shadowLayoutDx="0dp"
             app:shadowLayoutDy="0dp"
             app:shadowLayoutSpread="0dp">
+
+            <ViewFlipper
+                android:id="@+id/view_flipper_search_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <Button
+                android:id="@+id/button_add_to_watchlist_search_result"
                 android:layout_width="wrap_content"
                 android:layout_height="37dp"
                 android:padding="10dp"
@@ -102,8 +108,24 @@
                 android:textAllCaps="false"
                 android:textColor="@color/textMid"
                 android:fontFamily="@font/circe"
+                android:background="@drawable/comp_rounded_box_drop_shadow"
+                android:layout_gravity="center"/>
 
-                android:background="@drawable/comp_rounded_box_drop_shadow"/>
+                <Button
+                    android:id="@+id/button_remove_from_watchlist_search_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+                    android:padding="10dp"
+                    android:paddingEnd="20dp"
+                    android:paddingStart="20dp"
+                    android:text="@string/remove_from_watchlist"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textMid"
+                    android:fontFamily="@font/circe"
+                    android:background="@drawable/comp_rounded_box_drop_shadow"
+                    android:layout_gravity="center"/>
+
+            </ViewFlipper>
         </pl.looksoft.shadowlib.ShadowLayout>
 
         <View

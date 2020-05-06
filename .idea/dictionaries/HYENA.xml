@@ -2,7 +2,9 @@
   <dictionary name="HYENA">
     <words>
       <w>firestore</w>
+      <w>matchlist</w>
       <w>semibold</w>
+      <w>unfriend</w>
     </words>
   </dictionary>
 </component>

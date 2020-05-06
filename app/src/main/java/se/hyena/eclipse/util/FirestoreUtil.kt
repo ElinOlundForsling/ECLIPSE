@@ -19,7 +19,6 @@ object FirestoreUtil {
             ?: throw NullPointerException("UID is null.")}")
 
     private val chatChannelsCollectionRef = firestoreInstance.collection("chatChannels")
-    val usersCollectionRef = firestoreInstance.collection("users")
 
     fun initCurrentUserIfFirstTime(onComplete: () -> Unit) {
         currentUserDocRef.get().addOnSuccessListener { documentSnapshot ->
@@ -82,6 +81,25 @@ object FirestoreUtil {
             }
     }
 
+    fun doesMovieExistListener(movieId: Long, onListen: (Boolean) -> Unit) : ListenerRegistration {
+        val movieIdToString = movieId.toString()
+        return firestoreInstance.document("users/${FirebaseAuth.getInstance().currentUser?.uid
+            ?: throw NullPointerException("UID is null.")}").collection("watchlist").document(movieIdToString)
+            .addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                if (firebaseFirestoreException != null) {
+                    Log.e("FIRESTORE", "User listener error.", firebaseFirestoreException)
+                    return@addSnapshotListener
+            }
+                if (documentSnapshot != null) {
+                    if (documentSnapshot.exists()) {
+                        onListen(true)
+                    } else {
+                        onListen(false)
+                    }
+                }
+            }
+    }
+
     fun addWatchlistListener(context: Context, onListen: (List<Item>) -> Unit) : ListenerRegistration {
         return firestoreInstance.document("users/${FirebaseAuth.getInstance().currentUser?.uid
             ?: throw NullPointerException("UID is null.")}").collection("watchlist")
@@ -99,6 +117,43 @@ object FirestoreUtil {
             }
     }
 
+    fun doesFriendExistListener(friendId: String, onListen: (Boolean) -> Unit) : ListenerRegistration {
+        return firestoreInstance.document("users/${FirebaseAuth.getInstance().currentUser?.uid
+            ?: throw NullPointerException("UID is null.")}").collection("friends").document(friendId)
+            .addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                if (firebaseFirestoreException != null) {
+                    Log.e("FIRESTORE", "User listener error.", firebaseFirestoreException)
+                    return@addSnapshotListener
+                }
+                if (documentSnapshot != null) {
+                    if (documentSnapshot.exists()) {
+                        onListen(true)
+                    } else {
+                        onListen(false)
+                    }
+                }
+            }
+    }
+
+    fun addFriend(friendId: String, friend: Friend, onComplete: (friendName: String) -> Unit) {
+        currentUserDocRef.collection("friends")
+            .document(friendId).get().addOnSuccessListener {
+                if (it.exists()) {
+                    onComplete(it["friendName"] as String)
+                    return@addOnSuccessListener
+                }
+
+                val newFriendId = currentUserDocRef.collection("friends").document(friendId)
+                newFriendId.set(friend)
+
+                onComplete(friend.name)
+            }
+    }
+
+    fun removeFriend(friendId: String) {
+        currentUserDocRef.collection("friends").document(friendId).delete()
+    }
+
     fun addFriendWatchlistListener(context: Context, friendId: String, onListen: (List<Item>) -> Unit) : ListenerRegistration {
         return firestoreInstance.document("users/${friendId}").collection("watchlist")
             .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
@@ -109,7 +164,7 @@ object FirestoreUtil {
 
                 val items = mutableListOf<Item>()
                 querySnapshot!!.documents.forEach {
-                    items.add(FriendWatchlistItem(it.toObject(Movie::class.java)!!, it.id, context))
+                    items.add(FriendWatchlistItem(it.toObject(Movie::class.java)!!, context))
                 }
                 onListen(items)
             }
@@ -163,7 +218,9 @@ object FirestoreUtil {
 
     fun removeListener(registration: ListenerRegistration) = registration.remove()
 
-    fun addMovieToWatchlist(movieId: Long, movie: Movie, onComplete: (filmId: String) -> Unit) {
+
+
+    fun addMovieToWatchlist(movieId: Long, movie: Movie, onComplete: (movieTitle: String) -> Unit) {
         val movieIdToString = movieId.toString()
         currentUserDocRef.collection("watchlist")
             .document(movieIdToString).get().addOnSuccessListener {
@@ -173,10 +230,9 @@ object FirestoreUtil {
                 }
 
                 val newMovieId = currentUserDocRef.collection("watchlist").document(movieIdToString)
-                val newMovie = Movie(movie.id, movie.title, movie.overview, movie.posterPath, movie.backdropPath, movie.rating, movie.releaseDate)
-                newMovieId.set(newMovie)
+                newMovieId.set(movie)
 
-                onComplete(newMovieId.id)
+                onComplete(movie.title)
             }
     }
 

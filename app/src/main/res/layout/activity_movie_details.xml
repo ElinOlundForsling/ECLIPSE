@@ -1,6 +1,5 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -95,6 +94,16 @@
             app:layout_constraintStart_toEndOf="@+id/movie_poster_card"
             app:layout_constraintTop_toBottomOf="@+id/movie_title" />
 
+        <ViewFlipper
+            android:id="@+id/view_flipper_movie_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/backdrop_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/movie_poster_card"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.90">
         <Button
             android:id="@+id/add_to_watchlist"
             android:layout_width="wrap_content"
@@ -104,11 +113,19 @@
             android:padding="10dp"
             android:text="@string/add_to_watchlist"
             android:textColor="@color/textDark"
-            app:layout_constraintBottom_toTopOf="@+id/backdrop_guideline"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/movie_poster_card"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.90" />
+            android:layout_gravity="center"
+             />
+
+            <Button
+                android:id="@+id/remove_from_watchlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/comp_rounded_box_drop_shadow"
+                android:fontFamily="@font/circe"
+                android:padding="10dp"
+                android:text="@string/remove_from_watchlist"
+                android:textColor="@color/textDark"
+                android:layout_gravity="center"/>
+    </ViewFlipper>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

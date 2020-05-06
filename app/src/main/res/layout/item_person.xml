@@ -79,7 +79,7 @@
             android:background="#EFEFEF" />
 
         <pl.looksoft.shadowlib.ShadowLayout
-            android:id="@+id/shadowbox_remove_from_watchlist"
+            android:id="@+id/shadowbox_add_remove_friend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -88,9 +88,16 @@
             app:shadowLayoutColor="@color/dropShadowBlue"
             app:shadowLayoutDx="0dp"
             app:shadowLayoutDy="0dp"
-            app:shadowLayoutSpread="0dp">
+            app:shadowLayoutSpread="0dp"
+            tools:ignore="RelativeOverlap">
+
+            <ViewFlipper
+                android:id="@+id/view_flipper_friend_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
             <Button
+                android:id="@+id/button_add_friend"
                 android:layout_width="wrap_content"
                 android:layout_height="37dp"
                 android:padding="10dp"
@@ -100,8 +107,23 @@
                 android:textAllCaps="false"
                 android:textColor="@color/textMid"
                 android:fontFamily="@font/circe"
+                android:background="@drawable/comp_rounded_box_drop_shadow"
+                android:layout_gravity="center"/>
 
-                android:background="@drawable/comp_rounded_box_drop_shadow"/>
+                <Button
+                    android:id="@+id/button_remove_friend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+                    android:padding="10dp"
+                    android:paddingEnd="20dp"
+                    android:paddingStart="20dp"
+                    android:text="@string/remove_friend"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textMid"
+                    android:fontFamily="@font/circe"
+                    android:background="@drawable/comp_rounded_box_drop_shadow"
+                    android:layout_gravity="center"/>
+            </ViewFlipper>
         </pl.looksoft.shadowlib.ShadowLayout>
     </RelativeLayout>
 

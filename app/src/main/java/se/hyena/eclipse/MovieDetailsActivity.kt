@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.google.firebase.firestore.ListenerRegistration
 import se.hyena.eclipse.model.Movie
 import se.hyena.eclipse.util.FirestoreUtil
 
@@ -24,6 +25,10 @@ class MovieDetailsActivity : AppCompatActivity() {
     private lateinit var rating: RatingBar
     private lateinit var overview: TextView
     private lateinit var addToWatchList: Button
+    private lateinit var removeFromWatchList: Button
+    private lateinit var viewFlipper: ViewFlipper
+
+    private lateinit var isAddedListenerRegistration: ListenerRegistration
 
     private var movieId = 0L
     private var movieBackdrop = ""
@@ -43,6 +48,8 @@ class MovieDetailsActivity : AppCompatActivity() {
         rating = findViewById(R.id.movie_rating)
         overview = findViewById(R.id.movie_overview)
         addToWatchList = findViewById(R.id.add_to_watchlist)
+        removeFromWatchList = findViewById(R.id.remove_from_watchlist)
+        viewFlipper = findViewById(R.id.view_flipper_movie_details)
 
 
 
@@ -53,6 +60,8 @@ class MovieDetailsActivity : AppCompatActivity() {
         } else {
             finish()
         }
+
+        isAddedListenerRegistration = FirestoreUtil.doesMovieExistListener(movieId, this::changeButton)
     }
 
     private fun populateDetails(extras: Bundle) {
@@ -78,16 +87,29 @@ class MovieDetailsActivity : AppCompatActivity() {
         title.text = movieTitle
         rating.rating = movieRating / 2
         overview.text = movieOverview
+
+
+    }
+
+    private fun changeButton(doesExist: Boolean) {
+        if (doesExist) {
+            viewFlipper.displayedChild = 1
+        } else {
+            viewFlipper.displayedChild = 0
+        }
     }
 
     override fun onStart() {
         super.onStart()
         addToWatchList.setOnClickListener {
             val addMovie = Movie(movieId, movieTitle, movieOverview, moviePoster, movieBackdrop, movieRating, movieReleaseDate)
-            FirestoreUtil.addMovieToWatchlist(movieId, addMovie) { filmId ->
-                val toast = Toast.makeText(this, "Movie added to watchlist!", Toast.LENGTH_SHORT)
+            FirestoreUtil.addMovieToWatchlist(movieId, addMovie) { movieTitle ->
+                val toast = Toast.makeText(this, "$movieTitle added to watchlist!", Toast.LENGTH_SHORT)
                 toast.show()
             }
+        }
+        removeFromWatchList.setOnClickListener {
+            FirestoreUtil.removeFromWatchlist(movieId)
         }
     }
 }
