@@ -41,7 +41,6 @@ class AccountFragment : Fragment() {
     private lateinit var movieListenerRegistration: ListenerRegistration
     private lateinit var movieSection: Section
     private var shouldInitRecyclerView = true
-    private lateinit var removeFromWatchList: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

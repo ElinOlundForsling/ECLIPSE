@@ -15,6 +15,7 @@
     <string name="search">Search</string>
 
     <!-- HOME -->
+    <string name="welcome_back">Welcome Back,</string>
     <string name="popular">Popular Movies</string>
     <string name="most_popular_movies">Most popular movies</string>
     <string name="top_rated">Top Rated</string>
@@ -43,6 +44,7 @@
     <string name="match_movies">Match</string>
     <string name="add_friend">Add friend</string>
     <string name="remove_friend">Remove friend</string>
+    <string name="no_friends">You haven\'t added any friends yet. Try searching for users above.</string>
 
     <!-- CHAT -->
     <string name="type_message">Type Message</string>

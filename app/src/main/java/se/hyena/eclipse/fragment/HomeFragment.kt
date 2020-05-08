@@ -6,17 +6,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.content.Intent
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import se.hyena.eclipse.*
 
 import se.hyena.eclipse.adapters.MoviesAdapter
+import se.hyena.eclipse.glide.GlideApp
 import se.hyena.eclipse.model.Movie
 import se.hyena.eclipse.model.MoviesRepository
+import se.hyena.eclipse.util.FirestoreUtil
+import se.hyena.eclipse.util.StorageUtil
 
 
 class HomeFragment : Fragment() {
+
+    private lateinit var userName: TextView
+    private lateinit var userPicture: ImageView
 
     private lateinit var popularMovies: RecyclerView
     private lateinit var popularMoviesAdapter: MoviesAdapter
@@ -37,6 +45,20 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        userName = view.findViewById(R.id.text_view_user_name)
+        userPicture = view.findViewById(R.id.image_view_user_profile_picture)
+
+        FirestoreUtil.getCurrentUser { user ->
+            if (this@HomeFragment.isVisible) {
+                userName.text = user.name
+                if (user.profilePath != null)
+                    GlideApp.with(this)
+                        .load(StorageUtil.pathToReference(user.profilePath))
+                        .placeholder(R.drawable.ic_menu_alt_profile)
+                        .into(userPicture)
+            }
+        }
 
         popularMovies = view.findViewById(R.id.popular_movies)
         popularMoviesLayoutMgr = LinearLayoutManager(

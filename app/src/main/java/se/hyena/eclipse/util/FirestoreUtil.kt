@@ -47,23 +47,6 @@ object FirestoreUtil {
             }
     }
 
-    fun addUsersListener(context: Context, onListen: (List<Item>) -> Unit): ListenerRegistration {
-        return firestoreInstance.collection("users")
-            .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
-                if (firebaseFirestoreException != null) {
-                    Log.e("FIRESTORE", "User listener error.", firebaseFirestoreException)
-                    return@addSnapshotListener
-                }
-
-                val items = mutableListOf<Item>()
-                querySnapshot!!.documents.forEach {
-                    if (it.id != FirebaseAuth.getInstance().currentUser?.uid)
-                        items.add(FriendItem(it.toObject(User::class.java)!!, it.id, context))
-                }
-                onListen(items)
-            }
-    }
-
     fun addSearchResultListener(context: Context, searchText: String, onListen: (List<Item>) -> Unit): ListenerRegistration {
         return firestoreInstance.collection("users").orderBy("name").startAt(searchText).endAt(searchText + "\uf8ff")
             .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
@@ -132,6 +115,23 @@ object FirestoreUtil {
                         onListen(false)
                     }
                 }
+            }
+    }
+
+    fun addFriendListener(context: Context, onListen: (List<Item>) -> Unit) : ListenerRegistration {
+        return firestoreInstance.document("users/${FirebaseAuth.getInstance().currentUser?.uid
+            ?: throw NullPointerException("UID is null.")}").collection("friends")
+            .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+                if (firebaseFirestoreException != null) {
+                    Log.e("FIRESTORE", "User listener error.", firebaseFirestoreException)
+                    return@addSnapshotListener
+                }
+
+                val items = mutableListOf<Item>()
+                querySnapshot!!.documents.forEach {
+                    items.add(FriendItem(it.toObject(User::class.java)!!, it.id, context))
+                }
+                onListen(items)
             }
     }
 
