@@ -21,11 +21,11 @@
     <string name="most_popular_movies">Most popular movies</string>
     <string name="top_rated">Top Rated</string>
     <string name="highest_rated_movies">Highest rated movies of all time</string>
-    <string name="upcoming">Upcoming</string>
+    <string name="upcoming">新作映画</string>
     <string name="stay_updated">Stay updated with the latest movies</string>
 
     <!-- MOVIES -->
-    <string name="movies">Movies</string>
+    <string name="movies">映画</string>
     <string name="movie_poster">Movie Poster</string>
     <string name="movie_header">Movie Header</string>
 
@@ -41,8 +41,9 @@
     <!-- FRIENDS -->
     <string name="search_users">Search for users</string>
     <string name="friend_list">Your Friend List</string>
-    <string name="chat">Chat</string>
-    <string name="match_movies">Match Movies!</string>
+    <string name="chat">チャット</string>
+    <string name="match_movies">マッチ</string>
+    <string name="matched_with">Movies Matched with</string>
     <string name="add_friend">Add friend</string>
     <string name="remove_friend">Remove friend</string>
     <string name="no_friends">You haven\'t added any friends yet. Try searching for users above.</string>

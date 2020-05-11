@@ -42,6 +42,7 @@
     <string name="friend_list">Your Friend List</string>
     <string name="chat">Chat</string>
     <string name="match_movies">Match</string>
+    <string name="matched_with">Movies Matched with</string>
     <string name="add_friend">Add friend</string>
     <string name="remove_friend">Remove friend</string>
     <string name="no_friends">You haven\'t added any friends yet. Try searching for users above.</string>

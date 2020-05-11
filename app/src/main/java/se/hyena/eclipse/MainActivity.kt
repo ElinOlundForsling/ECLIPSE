@@ -10,13 +10,25 @@ import se.hyena.eclipse.fragment.FriendsFragment
 import se.hyena.eclipse.fragment.HomeFragment
 import se.hyena.eclipse.fragment.SearchFragment
 
+const val HOME_FRAGMENT = "home_fragment"
+const val FRIENDS_FRAGMENT = "friends_fragment"
+const val SEARCH_FRAGMENT = "search_fragment"
+const val ACCOUNT_FRAGMENT = "account_fragment"
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        replaceFragment(HomeFragment())
+        val extras = intent.extras
+
+        if (extras != null) {
+            //when (extras.getString())
+        } else {
+            replaceFragment(HomeFragment())
+        }
+
 
         menu_bottom.setOnItemSelectedListener { id ->
             when (id) {

@@ -19,8 +19,8 @@
             android:layout_height="wrap_content"
             app:shadowLayoutBlur="15dp"
             app:shadowLayoutColor="@color/dropShadowBlue"
-            app:shadowLayoutDx="5dp"
-            app:shadowLayoutDy="0dp"
+            app:shadowLayoutDx="0dp"
+            app:shadowLayoutDy="5dp"
             android:layout_marginEnd="32dp"
             android:layout_alignParentEnd="true"
             app:shadowLayoutSpread="0dp">

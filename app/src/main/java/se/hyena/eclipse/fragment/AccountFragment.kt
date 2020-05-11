@@ -121,10 +121,6 @@ class AccountFragment : Fragment() {
         if (requestCode == RC_SELECT_IMAGE && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
             val selectedImageUri = data.data
             val selectedImageBitmap = when {
-                Build.VERSION.SDK_INT < 28 -> MediaStore.Images.Media.getBitmap(
-                    activity?.contentResolver,
-                    selectedImageUri
-                )
                 Build.VERSION.SDK_INT >= 28 -> {
                     val source = ImageDecoder.createSource(activity?.contentResolver!!, selectedImageUri!!)
                     ImageDecoder.decodeBitmap(source)
