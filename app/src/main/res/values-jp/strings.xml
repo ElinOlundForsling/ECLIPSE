@@ -3,11 +3,13 @@
 
     <!-- MAIN -->
     <string name="app_name" tools:ignore="PrivateResource">ECLIPSE</string>
+    <string name="app_tag_line">Movie Matching App</string>
 
     <!-- SIGN IN -->
     <string name="email">メール</string>
     <string name="password">パスワード</string>
     <string name="login">ログイン / 会員登録</string>
+    <string name="sign_in_bg">Sign in background</string>
 
     <!-- MENU -->
     <string name="home">ホーム</string>
@@ -26,12 +28,13 @@
 
     <!-- MOVIES -->
     <string name="movies">映画</string>
-    <string name="movie_poster">Movie Poster</string>
+    <string name="movie_poster">映画ポスター</string>
     <string name="movie_header">Movie Header</string>
 
     <!-- WATCHLIST -->
+    <string name="watchlist">ウォッチリスト</string>
     <string name="add_to_watchlist">ウォッチリストに追加する</string>
-    <string name="remove_from_watchlist">Remove from Watchlist</string>
+    <string name="remove_from_watchlist">ウォッチリストから取り除く</string>
 
     <!-- SEARCH -->
     <string name="type_here">Type here…</string>
@@ -58,8 +61,8 @@
     <string name="save">セーブ</string>
     <string name="sign_out">ログアウト</string>
     <string name="user_profile_image">プロフィール画像</string>
-    <string name="watchlist">ウォッチリスト</string>
     <string name="your_watchlist">Your Watchlist</string>
+    <string name="empty_watchlist">You haven\'t added any movies to your watchlist yet.</string>
 
     <!-- ERRORS -->
     <string name="error_fetch_movies">無線LAN機能が有効になっているか状態を確認してください</string>

@@ -1,12 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- MAIN -->
-    <string name="app_name" tools:ignore="PrivateResource">ECLIPSE</string>
+    <string name="app_name" override="true">ECLIPSE</string>
+    <string name="app_tag_line">Movie Matching App</string>
 
     <!-- SIGN IN -->
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Sign in / Register</string>
+    <string name="sign_in_bg">Sign in background</string>
 
     <!-- MENU -->
     <string name="home">Home</string>
@@ -29,6 +31,7 @@
     <string name="movie_header">Movie Header</string>
 
     <!-- WATCHLIST -->
+    <string name="watchlist">Watchlist</string>
     <string name="add_to_watchlist">Add to watchlist</string>
     <string name="remove_from_watchlist">Remove from watchlist</string>
 
@@ -57,8 +60,8 @@
     <string name="save">Save</string>
     <string name="sign_out">Sign Out</string>
     <string name="user_profile_image">User Profile Image</string>
-    <string name="watchlist">Watchlist</string>
     <string name="your_watchlist">Your Watchlist</string>
+    <string name="empty_watchlist">You haven\'t added any movies to your watchlist yet.</string>
 
     <!-- ERRORS -->
     <string name="error_fetch_movies">Please check your internet connection</string>

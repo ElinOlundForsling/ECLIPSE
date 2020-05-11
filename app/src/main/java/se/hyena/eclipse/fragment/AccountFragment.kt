@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import android.widget.ViewFlipper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.firestore.ListenerRegistration
@@ -37,6 +38,7 @@ class AccountFragment : Fragment() {
     private val RC_SELECT_IMAGE = 2
     private lateinit var selectedImageBytes: ByteArray
     private var pictureJustChanged = false
+    private lateinit var viewFlipper: ViewFlipper
 
     private lateinit var movieListenerRegistration: ListenerRegistration
     private lateinit var movieSection: Section
@@ -47,6 +49,7 @@ class AccountFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_account, container, false)
+        viewFlipper = view.findViewById(R.id.view_flipper_watchlist)
 
         movieListenerRegistration = FirestoreUtil.addWatchlistListener(this.context!!, this::updateRecyclerView)
 
@@ -96,24 +99,31 @@ class AccountFragment : Fragment() {
 
     private fun updateRecyclerView(items: List<Item>) {
 
-        fun init() {
-            recyclerview_watchlist.apply {
-                layoutManager = LinearLayoutManager(this@AccountFragment.context)
-                adapter = GroupAdapter<GroupieViewHolder>().apply {
-                    movieSection = Section(items)
-                    add(movieSection)
-                    setOnItemClickListener(onItemClick)
+        if (items.isEmpty()) {
+            viewFlipper.displayedChild = 1
+        } else {
+            viewFlipper.displayedChild = 0
+            fun init() {
+                recyclerview_watchlist.apply {
+                    layoutManager = LinearLayoutManager(this@AccountFragment.context)
+                    adapter = GroupAdapter<GroupieViewHolder>().apply {
+                        movieSection = Section(items)
+                        add(movieSection)
+                        setOnItemClickListener(onItemClick)
+                    }
                 }
+                shouldInitRecyclerView = false
             }
-            shouldInitRecyclerView = false
+
+            fun updateItems() = movieSection.update(items)
+
+            if (shouldInitRecyclerView)
+                init()
+            else
+                updateItems()
         }
 
-        fun updateItems() = movieSection.update(items)
 
-        if (shouldInitRecyclerView)
-            init()
-        else
-            updateItems()
 
     }
 

@@ -26,6 +26,7 @@ class MatchlistItem (
             Glide.with(context)
                 .load("https://image.tmdb.org/t/p/w342${movie.posterPath}")
                 .transform(CenterCrop())
+                .placeholder(R.drawable.ic_poster_placeholder)
                 .into(viewHolder.image_view_match_movie_poster)
 
     }

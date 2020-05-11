@@ -233,7 +233,7 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
-                android:id="@+id/text_view_friend_profile_watchlist_title"
+                android:id="@+id/text_view_watchlist_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/watchlist"

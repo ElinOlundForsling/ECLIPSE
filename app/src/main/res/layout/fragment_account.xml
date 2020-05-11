@@ -5,194 +5,211 @@
     android:background="@color/white"
     android:layout_height="match_parent">
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.AccountFragment"
-    android:background="@color/white">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragment.AccountFragment"
+        android:background="@color/white">
 
-    <pl.looksoft.shadowlib.ShadowLayout
-        android:id="@+id/shadowbox_profile_picture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.00"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:shadowLayoutBlur="25dp"
-        app:shadowLayoutColor="@color/dropShadowBlue"
-        app:shadowLayoutDx="5dp"
-        app:shadowLayoutDy="0dp"
-        app:shadowLayoutSpread="0dp">
-
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/image_view_profile_picture"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="16dp"
-            android:scaleType="fitCenter"
-            app:riv_corner_radius="60dp"
-            android:background="@drawable/comp_account_profile_image"
-            android:contentDescription="@string/user_profile_image"
+        <pl.looksoft.shadowlib.ShadowLayout
+            android:id="@+id/shadowbox_profile_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/ic_menu_alt_profile" />
+            app:layout_constraintVertical_bias="0.00"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:shadowLayoutBlur="25dp"
+            app:shadowLayoutColor="@color/dropShadowBlue"
+            app:shadowLayoutDx="5dp"
+            app:shadowLayoutDy="0dp"
+            app:shadowLayoutSpread="0dp">
 
-    </pl.looksoft.shadowlib.ShadowLayout>
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/image_view_profile_picture"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="fitCenter"
+                app:riv_corner_radius="60dp"
+                android:background="@drawable/comp_account_profile_image"
+                android:contentDescription="@string/user_profile_image"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/ic_menu_alt_profile" />
 
-    <pl.looksoft.shadowlib.ShadowLayout
-        android:id="@+id/shadowbox_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/shadowbox_profile_picture"
-        app:layout_constraintVertical_bias="0.00"
-        app:shadowLayoutBlur="20dp"
-        app:shadowLayoutColor="#33256B9E"
-        app:shadowLayoutDx="0dp"
-        app:shadowLayoutDy="0dp"
-        app:shadowLayoutSpread="0dp">
+        </pl.looksoft.shadowlib.ShadowLayout>
 
-
-        <EditText
-            android:id="@+id/editText_name"
+        <pl.looksoft.shadowlib.ShadowLayout
+            android:id="@+id/shadowbox_name"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            android:autofillHints="@string/name"
-            android:background="@drawable/comp_rounded_box_drop_shadow"
-            android:fontFamily="@font/circe"
-            android:textSize="15sp"
-            android:hint="@string/name"
-            android:inputType="textPersonName"
-            android:padding="10dp"
-            android:textColor="@color/textLight"
-            android:textColorHint="@color/textLight"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shadowbox_profile_picture"
+            app:layout_constraintVertical_bias="0.00"
+            app:shadowLayoutBlur="20dp"
+            app:shadowLayoutColor="#33256B9E"
+            app:shadowLayoutDx="0dp"
+            app:shadowLayoutDy="0dp"
+            app:shadowLayoutSpread="0dp">
+
+
+            <EditText
+                android:id="@+id/editText_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:autofillHints="@string/name"
+                android:background="@drawable/comp_rounded_box_drop_shadow"
+                android:fontFamily="@font/circe"
+                android:textSize="15sp"
+                android:hint="@string/name"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="@color/textLight"
+                android:textColorHint="@color/textLight"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.00" />
+
+        </pl.looksoft.shadowlib.ShadowLayout>
+
+        <pl.looksoft.shadowlib.ShadowLayout
+            android:id="@+id/shadowbox_bio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shadowbox_name"
+            app:layout_constraintVertical_bias="0.00"
+            app:shadowLayoutBlur="20dp"
+            app:shadowLayoutColor="#33256B9E"
+            app:shadowLayoutDx="0dp"
+            app:shadowLayoutDy="0dp"
+            app:shadowLayoutSpread="0dp">
+
+            <EditText
+                android:id="@+id/editText_bio"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:autofillHints="@string/bio"
+                android:background="@drawable/comp_rounded_box_drop_shadow"
+                android:hint="@string/bio"
+                android:fontFamily="@font/circe"
+                android:textSize="15sp"
+                android:inputType="textShortMessage"
+                android:maxHeight="150dp"
+                android:textColor="@color/textLight"
+                android:textColorHint="@color/textLight"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/shadowbox_name"
+
+                app:layout_constraintVertical_bias="0.042" />
+
+        </pl.looksoft.shadowlib.ShadowLayout>
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/comp_account_button"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:shadowRadius="0"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/linear_layout_watchlist"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.00" />
+            app:layout_constraintTop_toBottomOf="@+id/shadowbox_bio"
+            app:layout_constraintVertical_bias="0.5" />
 
-    </pl.looksoft.shadowlib.ShadowLayout>
-
-    <pl.looksoft.shadowlib.ShadowLayout
-        android:id="@+id/shadowbox_bio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/shadowbox_name"
-        app:layout_constraintVertical_bias="0.00"
-        app:shadowLayoutBlur="20dp"
-        app:shadowLayoutColor="#33256B9E"
-        app:shadowLayoutDx="0dp"
-        app:shadowLayoutDy="0dp"
-        app:shadowLayoutSpread="0dp">
-
-    <EditText
-        android:id="@+id/editText_bio"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:padding="10dp"
-        android:autofillHints="@string/bio"
-        android:background="@drawable/comp_rounded_box_drop_shadow"
-        android:hint="@string/bio"
-        android:fontFamily="@font/circe"
-        android:textSize="15sp"
-        android:inputType="textShortMessage"
-        android:maxHeight="150dp"
-        android:textColor="@color/textLight"
-        android:textColorHint="@color/textLight"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/shadowbox_name"
-
-        app:layout_constraintVertical_bias="0.042" />
-
-    </pl.looksoft.shadowlib.ShadowLayout>
-
-    <Button
-        android:id="@+id/btn_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/comp_account_button"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:shadowRadius="0"
-        android:text="@string/save"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/linear_layout_watchlist"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shadowbox_bio"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <LinearLayout
-        android:id="@+id/linear_layout_watchlist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/btn_save"
-        app:layout_constraintBottom_toTopOf="@id/btn_sign_out">
-
-        <TextView
-            android:id="@+id/text_view_friend_profile_watchlist_title"
+        <LinearLayout
+            android:id="@+id/linear_layout_watchlist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/your_watchlist"
-            android:fontFamily="@font/sf_pro_display_semibold"
-            android:textColor="@color/textDark"
-            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/btn_save"
+            app:layout_constraintBottom_toTopOf="@id/btn_sign_out">
+
+            <TextView
+                android:id="@+id/text_view_watchlist_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/your_watchlist"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:textColor="@color/textDark"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="32dp"
+                android:textSize="16sp"/>
+
+            <ViewFlipper
+                android:id="@+id/view_flipper_watchlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview_watchlist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:padding="16dp" />
+
+                <TextView
+                    android:id="@+id/text_view_empty_watchlist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/circe"
+                    android:textColor="@color/textLight"
+                    android:text="@string/empty_watchlist"/>
+            </ViewFlipper>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_sign_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:layout_marginStart="32dp"
-            android:textSize="16sp"/>
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/comp_account_button"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:shadowRadius="0"
+            android:text="@string/sign_out"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout_watchlist"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_watchlist"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:padding="16dp" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_sign_out"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/comp_account_button"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:shadowRadius="0"
-        android:text="@string/sign_out"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/linear_layout_watchlist"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

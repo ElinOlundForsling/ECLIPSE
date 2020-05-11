@@ -63,7 +63,7 @@ class FriendProfileActivity : AppCompatActivity() {
         friendBio = findViewById(R.id.text_view_friend_profile_bio)
         friendProfilePicture = findViewById(R.id.image_view_friend_profile_picture)
         friendWatchlist = findViewById(R.id.recycler_view_friend_profile_watchlist)
-        friendWatchlistTitle = findViewById(R.id.text_view_friend_profile_watchlist_title)
+        friendWatchlistTitle = findViewById(R.id.text_view_watchlist_title)
         friendChatButton = findViewById(R.id.button_friend_profile_chat)
         friendMatchButton = findViewById(R.id.button_friend_profile_match)
         friendViewFlipperButton = findViewById(R.id.view_flipper_friend_profile)
