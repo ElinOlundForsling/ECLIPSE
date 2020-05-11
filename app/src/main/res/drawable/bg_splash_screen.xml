@@ -5,7 +5,6 @@
 
     <item>
         <bitmap android:src="@drawable/bg_eclipse_horizontal"
-
             android:gravity="center|bottom|clip_vertical" />
     </item>
 </layer-list>
