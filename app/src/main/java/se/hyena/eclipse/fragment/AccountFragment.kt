@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import android.widget.ViewFlipper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -63,7 +62,7 @@ class AccountFragment : Fragment() {
                 }
                 startActivityForResult(Intent.createChooser(intent, "Select Image"), RC_SELECT_IMAGE)
             }
-            btn_save.setOnClickListener {
+            button_save.setOnClickListener {
                 if (::selectedImageBytes.isInitialized)
                     StorageUtil.uploadProfilePhoto(selectedImageBytes) { imagePath ->
                         FirestoreUtil.updateCurrentUser(editText_name.text.toString(), editText_bio.text.toString(), imagePath)
@@ -75,7 +74,7 @@ class AccountFragment : Fragment() {
                 toast.show()
             }
 
-            btn_sign_out.setOnClickListener { AuthUI.getInstance()
+            button_sign_out.setOnClickListener { AuthUI.getInstance()
                 .signOut(this@AccountFragment.context!!)
                 .addOnCompleteListener {
                     val signOutIntent = Intent(this.context, SignInActivity::class.java)

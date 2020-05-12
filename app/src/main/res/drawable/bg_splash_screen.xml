@@ -4,7 +4,7 @@
 
 
     <item>
-        <bitmap android:src="@drawable/bg_eclipse_horizontal"
-            android:gravity="center|bottom|clip_vertical" />
+        <bitmap android:src="@drawable/bg_eclipse_vertical_square"
+            android:gravity="center|bottom|clip_vertical"/>
     </item>
 </layer-list>
