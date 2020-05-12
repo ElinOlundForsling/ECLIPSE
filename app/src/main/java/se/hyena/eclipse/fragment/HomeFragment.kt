@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
                 if (user.profilePath != null)
                     GlideApp.with(this)
                         .load(StorageUtil.pathToReference(user.profilePath))
-                        .placeholder(R.drawable.ic_menu_alt_profile)
+                        .placeholder(R.drawable.ic_menu_profile)
                         .into(userPicture)
             }
         }

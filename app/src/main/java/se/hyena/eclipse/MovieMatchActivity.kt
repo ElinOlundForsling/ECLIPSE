@@ -15,7 +15,6 @@ import com.xwray.groupie.OnItemClickListener
 import com.xwray.groupie.Section
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import com.xwray.groupie.kotlinandroidextensions.Item
-import kotlinx.android.synthetic.main.activity_friend_profile.*
 import kotlinx.android.synthetic.main.activity_movie_match.*
 import se.hyena.eclipse.glide.GlideApp
 import se.hyena.eclipse.recyclerview.item.MatchlistItem
@@ -58,8 +57,35 @@ class MovieMatchActivity : AppCompatActivity() {
             if (user.profilePath != null)
                 GlideApp.with(this)
                     .load(StorageUtil.pathToReference(user.profilePath))
-                    .placeholder(R.drawable.ic_menu_alt_profile)
+                    .placeholder(R.drawable.ic_menu_profile)
                     .into(matchlistUserPicture)
+        }
+
+        menu_bottom_movie_match.setOnItemSelectedListener { id ->
+            val intent = Intent(this, MainActivity::class.java)
+            when (id) {
+                R.id.home -> {
+                    intent.apply {
+                        putExtra(FRAGMENT, HOME_FRAGMENT)
+                    }
+                }
+                R.id.friends -> {
+                    intent.apply {
+                        putExtra(FRAGMENT, FRIENDS_FRAGMENT)
+                    }
+                }
+                R.id.search -> {
+                    intent.apply {
+                        putExtra(FRAGMENT, SEARCH_FRAGMENT)
+                    }
+                }
+                R.id.profile -> {
+                    intent.apply {
+                        putExtra(FRAGMENT, ACCOUNT_FRAGMENT)
+                    }
+                }
+            }
+            startActivity(intent)
         }
     }
 

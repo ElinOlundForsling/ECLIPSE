@@ -34,7 +34,7 @@
                 app:riv_corner_radius="40dp"
                 android:background="@drawable/comp_account_profile_image"
                 android:contentDescription="@string/user_profile_image"
-                app:srcCompat="@drawable/ic_menu_alt_profile" />
+                app:srcCompat="@drawable/ic_menu_profile" />
 
         </pl.looksoft.shadowlib.ShadowLayout>
 

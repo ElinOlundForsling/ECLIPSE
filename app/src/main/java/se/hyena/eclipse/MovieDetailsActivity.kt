@@ -1,11 +1,13 @@
 package se.hyena.eclipse
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.google.firebase.firestore.ListenerRegistration
+import kotlinx.android.synthetic.main.activity_movie_details.*
 import se.hyena.eclipse.model.Movie
 import se.hyena.eclipse.util.FirestoreUtil
 
@@ -88,6 +90,32 @@ class MovieDetailsActivity : AppCompatActivity() {
         rating.rating = movieRating / 2
         overview.text = movieOverview
 
+        menu_bottom_movie_activity.setOnItemSelectedListener { id ->
+            val intent = Intent(this, MainActivity::class.java)
+            when (id) {
+                R.id.home -> {
+                    intent.apply {
+                        putExtra(FRAGMENT, HOME_FRAGMENT)
+                    }
+                }
+                R.id.friends -> {
+                    intent.apply {
+                        putExtra(FRAGMENT, FRIENDS_FRAGMENT)
+                    }
+                }
+                R.id.search -> {
+                    intent.apply {
+                        putExtra(FRAGMENT, SEARCH_FRAGMENT)
+                    }
+                }
+                R.id.profile -> {
+                    intent.apply {
+                        putExtra(FRAGMENT, ACCOUNT_FRAGMENT)
+                    }
+                }
+            }
+            startActivity(intent)
+        }
 
     }
 

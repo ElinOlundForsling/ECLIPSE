@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MovieMatchActivity"></activity>
+        <activity android:name=".MovieMatchActivity" />
         <activity android:name=".FriendProfileActivity" />
         <activity android:name=".MovieDetailsActivity" />
         <activity
@@ -42,7 +42,7 @@
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_eclipse_appicon" />
+            android:resource="@drawable/ic_launcher_foreground" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />

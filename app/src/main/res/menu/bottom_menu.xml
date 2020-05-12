@@ -5,41 +5,41 @@
     <item
         android:id="@+id/home"
         android:enabled="true"
-        android:icon="@drawable/ic_menu_alt_home"
+        android:icon="@drawable/ic_menu_home"
         android:title="@string/home"
-        app:cnb_backgroundColor="@color/home"
-        app:cnb_iconColor="@color/homeDark"
+        app:cnb_backgroundColor="@color/bgRed"
+        app:cnb_iconColor="@color/textRed"
         app:cnb_iconTintMode="src_in"
-        app:cnb_textColor="@color/homeDark" />
+        app:cnb_textColor="@color/textRed" />
 
     <item
         android:id="@+id/friends"
         android:enabled="true"
-        android:icon="@drawable/ic_menu_alt_friends"
+        android:icon="@drawable/ic_menu_friends"
         android:title="@string/friends"
-        app:cnb_backgroundColor="@color/friends"
-        app:cnb_iconColor="@color/friendsDark"
+        app:cnb_backgroundColor="@color/bgRed"
+        app:cnb_iconColor="@color/textRed"
         app:cnb_iconTintMode="src_in"
-        app:cnb_textColor="@color/friendsDark" />
+        app:cnb_textColor="@color/textRed" />
 
     <item
         android:id="@+id/search"
         android:enabled="true"
-        android:icon="@drawable/ic_menu_alt_search"
+        android:icon="@drawable/ic_menu_search"
         android:title="@string/search"
-        app:cnb_backgroundColor="@color/search"
-        app:cnb_iconColor="@color/searchDark"
+        app:cnb_backgroundColor="@color/bgRed"
+        app:cnb_iconColor="@color/textRed"
         app:cnb_iconTintMode="src_in"
-        app:cnb_textColor="@color/searchDark" />
+        app:cnb_textColor="@color/textRed" />
 
     <item
         android:id="@+id/profile"
         android:enabled="true"
-        android:icon="@drawable/ic_menu_alt_profile"
+        android:icon="@drawable/ic_menu_profile"
         android:title="@string/profile"
-        app:cnb_backgroundColor="@color/profile"
-        app:cnb_iconColor="@color/profileDark"
+        app:cnb_backgroundColor="@color/bgRed"
+        app:cnb_iconColor="@color/textRed"
         app:cnb_iconTintMode="src_in"
-        app:cnb_textColor="@color/profileDark" />
+        app:cnb_textColor="@color/textRed" />
 
 </menu>

@@ -34,7 +34,7 @@ import java.io.ByteArrayOutputStream
 
 class AccountFragment : Fragment() {
 
-    private val RC_SELECT_IMAGE = 2
+    private val selectImage = 2
     private lateinit var selectedImageBytes: ByteArray
     private var pictureJustChanged = false
     private lateinit var viewFlipper: ViewFlipper
@@ -50,7 +50,7 @@ class AccountFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_account, container, false)
         viewFlipper = view.findViewById(R.id.view_flipper_watchlist)
 
-        movieListenerRegistration = FirestoreUtil.addWatchlistListener(this.context!!, this::updateRecyclerView)
+        movieListenerRegistration = FirestoreUtil.addWatchlistListener(this.requireContext(), this::updateRecyclerView)
 
 
         view.apply {
@@ -60,7 +60,7 @@ class AccountFragment : Fragment() {
                     action = Intent.ACTION_GET_CONTENT
                     putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/jpeg", "image/jpg", "image/png", "image/gif"))
                 }
-                startActivityForResult(Intent.createChooser(intent, "Select Image"), RC_SELECT_IMAGE)
+                startActivityForResult(Intent.createChooser(intent, "Select Image"), selectImage)
             }
             button_save.setOnClickListener {
                 if (::selectedImageBytes.isInitialized)
@@ -75,7 +75,7 @@ class AccountFragment : Fragment() {
             }
 
             button_sign_out.setOnClickListener { AuthUI.getInstance()
-                .signOut(this@AccountFragment.context!!)
+                .signOut(this@AccountFragment.requireContext())
                 .addOnCompleteListener {
                     val signOutIntent = Intent(this.context, SignInActivity::class.java)
                         .apply {
@@ -127,7 +127,7 @@ class AccountFragment : Fragment() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == RC_SELECT_IMAGE && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
+        if (requestCode == selectImage && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
             val selectedImageUri = data.data
             val selectedImageBitmap = when {
                 Build.VERSION.SDK_INT >= 28 -> {
@@ -178,7 +178,7 @@ class AccountFragment : Fragment() {
                 if (!pictureJustChanged && user.profilePath != null)
                     GlideApp.with(this)
                         .load(StorageUtil.pathToReference(user.profilePath))
-                        .placeholder(R.drawable.ic_menu_alt_profile)
+                        .placeholder(R.drawable.ic_menu_profile)
                         .into(image_view_profile_picture)
             }
         }

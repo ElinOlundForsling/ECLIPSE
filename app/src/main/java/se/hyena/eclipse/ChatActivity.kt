@@ -6,9 +6,10 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ListenerRegistration
@@ -18,7 +19,6 @@ import com.xwray.groupie.Section
 import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.activity_chat.*
 import se.hyena.eclipse.model.ImageMessage
-import se.hyena.eclipse.model.MessageType
 import se.hyena.eclipse.model.TextMessage
 import se.hyena.eclipse.model.User
 import se.hyena.eclipse.util.FirestoreUtil
@@ -44,6 +44,17 @@ class ChatActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = intent.getStringExtra(AppConstants.USER_NAME)
+
+        supportFragmentManager.addOnBackStackChangedListener {
+            val stackHeight = supportFragmentManager.backStackEntryCount
+            if (stackHeight > 0) { // if we have something on the stack (doesn't include the current shown fragment)
+                supportActionBar!!.setHomeButtonEnabled(true)
+                supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+            } else {
+                supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+                supportActionBar!!.setHomeButtonEnabled(false)
+            }
+        }
 
         FirestoreUtil.getCurrentUser {
             currentUser = it
@@ -81,10 +92,6 @@ class ChatActivity : AppCompatActivity() {
         if (requestCode == RC_SELECT_IMAGE && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
             val selectedImageUri = data.data
             val selectedImageBitmap = when {
-                Build.VERSION.SDK_INT < 28 -> MediaStore.Images.Media.getBitmap(
-                    contentResolver,
-                    selectedImageUri
-                )
                 Build.VERSION.SDK_INT >= 28 -> {
                     val source = ImageDecoder.createSource(contentResolver!!, selectedImageUri!!)
                     ImageDecoder.decodeBitmap(source)
@@ -130,5 +137,19 @@ class ChatActivity : AppCompatActivity() {
             updateItems()
 
         recycler_view_messages.scrollToPosition(recycler_view_messages.adapter!!.itemCount -1)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                val fm = supportFragmentManager
+                if (fm.backStackEntryCount > 0) {
+                    fm.popBackStack()
+                    return true
+                }
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

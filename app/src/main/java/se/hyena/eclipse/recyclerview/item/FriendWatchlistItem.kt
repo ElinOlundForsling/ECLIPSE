@@ -9,7 +9,6 @@ import com.google.firebase.firestore.ListenerRegistration
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import kotlinx.android.synthetic.main.item_friend_watchlist.*
-import kotlinx.android.synthetic.main.item_watchlist.*
 import se.hyena.eclipse.R
 import se.hyena.eclipse.model.Movie
 import se.hyena.eclipse.util.FirestoreUtil

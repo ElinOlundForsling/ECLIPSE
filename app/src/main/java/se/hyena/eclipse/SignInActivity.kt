@@ -16,7 +16,7 @@ import se.hyena.eclipse.util.FirestoreUtil
 
 class SignInActivity : AppCompatActivity() {
 
-    private val RC_SIGN_IN = 1
+    private val rcSignIn = 1
 
     private val signInProviders =
         listOf(
@@ -33,14 +33,14 @@ class SignInActivity : AppCompatActivity() {
             val intent = AuthUI.getInstance().createSignInIntentBuilder()
                 .setAvailableProviders(signInProviders)
                 .build()
-            startActivityForResult(intent, RC_SIGN_IN)
+            startActivityForResult(intent, rcSignIn)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == RC_SIGN_IN) {
+        if (requestCode == rcSignIn) {
             val response = IdpResponse.fromResultIntent(data)
 
             if (resultCode == Activity.RESULT_OK) {

@@ -34,7 +34,7 @@ class PersonItem (
         if (person.profilePath != null)
             Glide.with(context)
                 .load(StorageUtil.pathToReference(person.profilePath))
-                .placeholder(R.drawable.ic_menu_alt_profile)
+                .placeholder(R.drawable.ic_menu_profile)
                 .into(viewHolder.image_view_friend_picture)
 
         doesFriendExistListenerRegistration = FirestoreUtil.doesFriendExistListener(userId, this::changeButton)

@@ -7,7 +7,6 @@ import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.module.AppGlideModule
 import com.firebase.ui.storage.images.FirebaseImageLoader
 import com.google.firebase.storage.StorageReference
-import se.hyena.eclipse.util.StorageUtil
 import java.io.InputStream
 
 @GlideModule

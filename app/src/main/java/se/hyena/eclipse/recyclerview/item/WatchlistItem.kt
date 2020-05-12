@@ -6,7 +6,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
-import kotlinx.android.synthetic.main.item_person.*
 import kotlinx.android.synthetic.main.item_watchlist.*
 import se.hyena.eclipse.R
 import se.hyena.eclipse.model.Movie

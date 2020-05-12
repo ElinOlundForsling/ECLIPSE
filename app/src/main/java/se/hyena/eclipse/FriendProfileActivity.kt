@@ -87,6 +87,35 @@ class FriendProfileActivity : AppCompatActivity() {
         friendBefriendButton.setOnClickListener(onBefriendButtonClick)
         friendUnfriendButton.setOnClickListener(onUnfriendButtonClick)
 
+
+        menu_bottom_friend_profile.setOnItemSelectedListener { id ->
+            val intent = Intent(this, MainActivity::class.java)
+            when (id) {
+                R.id.home -> {
+                    intent.apply {
+                        putExtra(FRAGMENT, HOME_FRAGMENT)
+                    }
+                }
+                R.id.friends -> {
+                    intent.apply {
+                        putExtra(FRAGMENT, FRIENDS_FRAGMENT)
+                    }
+                }
+                R.id.search -> {
+                    intent.apply {
+                        putExtra(FRAGMENT, SEARCH_FRAGMENT)
+                    }
+                }
+                R.id.profile -> {
+                    intent.apply {
+                        putExtra(FRAGMENT, ACCOUNT_FRAGMENT)
+                    }
+                }
+            }
+            startActivity(intent)
+        }
+
+
     }
 
     private val onChatButtonClick = View.OnClickListener {

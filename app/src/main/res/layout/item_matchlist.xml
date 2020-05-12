@@ -35,7 +35,7 @@
                 android:layout_width="66dp"
                 android:layout_height="84dp"
                 android:layout_centerVertical="true"
-                tools:src="@drawable/ic_menu_alt_video"
+                tools:src="@drawable/ic_menu_video"
                 android:contentDescription="@string/movie_poster" />
 
         </pl.looksoft.shadowlib.ShadowLayout>

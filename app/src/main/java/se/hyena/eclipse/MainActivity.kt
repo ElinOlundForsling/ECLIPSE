@@ -10,6 +10,7 @@ import se.hyena.eclipse.fragment.FriendsFragment
 import se.hyena.eclipse.fragment.HomeFragment
 import se.hyena.eclipse.fragment.SearchFragment
 
+const val FRAGMENT = "fragment"
 const val HOME_FRAGMENT = "home_fragment"
 const val FRIENDS_FRAGMENT = "friends_fragment"
 const val SEARCH_FRAGMENT = "search_fragment"
@@ -24,9 +25,27 @@ class MainActivity : AppCompatActivity() {
         val extras = intent.extras
 
         if (extras != null) {
-            //when (extras.getString())
+            when (extras.getString(FRAGMENT)) {
+                HOME_FRAGMENT -> {
+                    replaceFragment(HomeFragment())
+                    menu_bottom.setItemSelected(R.id.home)
+                }
+                FRIENDS_FRAGMENT -> {
+                    replaceFragment(FriendsFragment())
+                    menu_bottom.setItemSelected(R.id.friends)
+                }
+                SEARCH_FRAGMENT -> {
+                    replaceFragment(SearchFragment())
+                    menu_bottom.setItemSelected(R.id.search)
+                }
+                ACCOUNT_FRAGMENT -> {
+                    replaceFragment(AccountFragment())
+                    menu_bottom.setItemSelected(R.id.profile)
+                }
+            }
         } else {
             replaceFragment(HomeFragment())
+            menu_bottom.setItemSelected(R.id.home)
         }
 
 

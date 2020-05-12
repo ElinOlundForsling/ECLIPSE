@@ -35,7 +35,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerVertical="true"
-            tools:src="@drawable/ic_menu_alt_profile"
+            tools:src="@drawable/ic_menu_profile"
             android:contentDescription="@string/user_profile_image" />
 
         </pl.looksoft.shadowlib.ShadowLayout>

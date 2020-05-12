@@ -29,7 +29,7 @@ class FriendItem (
         if (person.profilePath != null)
             GlideApp.with(context)
                 .load(StorageUtil.pathToReference(person.profilePath))
-                .placeholder(R.drawable.ic_menu_alt_profile)
+                .placeholder(R.drawable.ic_menu_profile)
                 .into(viewHolder.image_view_friend_picture)
     }
 
