@@ -10,6 +10,7 @@ import com.xwray.groupie.kotlinandroidextensions.Item
 import se.hyena.eclipse.model.*
 import se.hyena.eclipse.recyclerview.item.*
 import java.lang.NullPointerException
+import java.util.*
 
 object FirestoreUtil {
     private val firestoreInstance: FirebaseFirestore by lazy { FirebaseFirestore.getInstance() }
@@ -24,7 +25,8 @@ object FirestoreUtil {
         currentUserDocRef.get().addOnSuccessListener { documentSnapshot ->
             if (!documentSnapshot.exists()) {
                 val newUser =
-                    User(FirebaseAuth.getInstance().currentUser?.displayName ?: "", "", null, mutableListOf())
+                    User(FirebaseAuth.getInstance().currentUser?.displayName ?: "", FirebaseAuth.getInstance().currentUser?.displayName?.toLowerCase(
+                        Locale.ROOT) ?: "", "", null, mutableListOf())
                 currentUserDocRef.set(newUser).addOnSuccessListener { onComplete() }
             }
             else
@@ -32,9 +34,10 @@ object FirestoreUtil {
         }
     }
 
-    fun updateCurrentUser(name: String = "", bio: String = "", profilePath: String? = null) {
+    fun updateCurrentUser(name: String = "", nameLowerCase: String = "", bio: String = "", profilePath: String? = null) {
         val userFieldMap = mutableMapOf<String, Any>()
         if (name.isNotBlank()) userFieldMap["name"] = name
+        if (name.isNotBlank()) userFieldMap["nameLowerCase"] = nameLowerCase
         if (bio.isNotBlank()) userFieldMap["bio"] = bio
         if (profilePath != null) userFieldMap["profilePath"] = profilePath
         currentUserDocRef.update(userFieldMap)
@@ -48,7 +51,7 @@ object FirestoreUtil {
     }
 
     fun addSearchResultListener(context: Context, searchText: String, onListen: (List<Item>) -> Unit): ListenerRegistration {
-        return firestoreInstance.collection("users").orderBy("name").startAt(searchText).endAt(searchText + "\uf8ff")
+        return firestoreInstance.collection("users").orderBy("nameLowerCase").startAt(searchText).endAt(searchText + "\uf8ff")
             .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
                 if (firebaseFirestoreException != null) {
                     Log.e("FIRESTORE", "User listener error.", firebaseFirestoreException)

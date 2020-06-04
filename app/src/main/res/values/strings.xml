@@ -46,7 +46,10 @@
     <string name="chat">Chat</string>
     <string name="match_movies">Match</string>
     <string name="matched_with">Movies Matched with</string>
-    <string name="add_friend">Add friend</string>
+    <string name="add_friend">Send friend request</string>
+    <string name="accept_friend">Accept friend request</string>
+    <string name="ignore_friend">Ignore friend request</string>
+    <string name="pending_friend">Pending friend request</string>
     <string name="remove_friend">Remove friend</string>
     <string name="no_friends">You haven\'t added any friends yet. Try searching for users above.</string>
 

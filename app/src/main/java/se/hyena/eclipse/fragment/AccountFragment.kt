@@ -68,7 +68,7 @@ class AccountFragment : Fragment() {
                         FirestoreUtil.updateCurrentUser(editText_name.text.toString(), editText_bio.text.toString(), imagePath)
                     }
                 else
-                    FirestoreUtil.updateCurrentUser(editText_name.text.toString(), editText_bio.text.toString(), null)
+                    FirestoreUtil.updateCurrentUser(editText_name.text.toString(), editText_name.text.toString().toLowerCase(), editText_bio.text.toString(), null)
 
                 val toast = Toast.makeText(this.context, "Saving...", Toast.LENGTH_SHORT)
                 toast.show()
@@ -152,7 +152,7 @@ class AccountFragment : Fragment() {
         }
     }
 
-    private val onItemClick = OnItemClickListener { item, view ->
+    private val onItemClick = OnItemClickListener { item, _ ->
         if (item is WatchlistItem) {
             val chatIntent = Intent(this.context, MovieDetailsActivity::class.java)
                 .apply {

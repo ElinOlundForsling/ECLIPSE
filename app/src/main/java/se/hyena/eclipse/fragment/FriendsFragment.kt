@@ -26,6 +26,7 @@ import se.hyena.eclipse.*
 import se.hyena.eclipse.recyclerview.item.FriendItem
 import se.hyena.eclipse.recyclerview.item.PersonItem
 import se.hyena.eclipse.util.FirestoreUtil
+import java.util.*
 
 
 class FriendsFragment : Fragment() {
@@ -51,7 +52,7 @@ class FriendsFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_friends, container, false)
 
-        friendListenerRegistration = FirestoreUtil.addFriendListener(this.activity!!, this::updateRecycleView)
+        friendListenerRegistration = FirestoreUtil.addFriendListener(this.requireActivity(), this::updateRecycleView)
 
         searchBar = view.findViewById(R.id.search_bar_users)
         searchResults = view.findViewById(R.id.recycler_view_search_results_users)
@@ -62,10 +63,10 @@ class FriendsFragment : Fragment() {
             Log.i("I'm", "triggered")
             if(actionId == EditorInfo.IME_ACTION_SEARCH){
 
-                val searchText = searchBar.text.toString()
+                val searchText = searchBar.text.toString().toLowerCase(Locale.ROOT)
                 Log.i("SearchText:", searchText)
                 shouldInitSearchView = true
-                searchResultListenerRegistration = FirestoreUtil.addSearchResultListener(this.activity!!, searchText, this::updateSearchView)
+                searchResultListenerRegistration = FirestoreUtil.addSearchResultListener(this.requireActivity(), searchText, this::updateSearchView)
                 hideKeyboard()
                 true
             } else {
